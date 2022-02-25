@@ -21,6 +21,7 @@ public class BaseServer : MonoBehaviour
         driver = NetworkDriver.Create(); //Creates a reference for the driver
         NetworkEndPoint endpoint = NetworkEndPoint.AnyIpv4; // Who can connect to us
         endpoint.Port = 5522;
+
         if (driver.Bind(endpoint) != 0)
             Debug.Log("There was an error binding to port " + endpoint.Port);
         else
@@ -44,8 +45,6 @@ public class BaseServer : MonoBehaviour
         CleanupConnections();
         AcceptNewConnections();
         UpdateMessagePump();
-
-
     }
 
     /// <summary>
@@ -78,6 +77,7 @@ public class BaseServer : MonoBehaviour
     /// <summary>
     /// Parse the messages being sent to us from the clients and apply it to us
     /// </summary>
+    /// 
     protected virtual void UpdateMessagePump()
     {
         DataStreamReader stream;
@@ -93,8 +93,8 @@ public class BaseServer : MonoBehaviour
                 }
                 else if (cmd == NetworkEvent.Type.Disconnect)
                 {
-                    connections[i] = default(NetworkConnection);
                     Debug.Log("Client disconnected from the server");
+                    connections[i] = default(NetworkConnection);
                 }
             }
         }
