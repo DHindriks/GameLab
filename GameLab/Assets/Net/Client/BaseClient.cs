@@ -75,4 +75,12 @@ public class BaseClient : MonoBehaviour
             }
         }
     }
+
+    public virtual void SendToServer(NetMessage msg)
+    {
+        DataStreamWriter writer;
+        driver.BeginSend(connection, out writer);
+        msg.Serialize(ref writer);
+        driver.EndSend(writer);
+    }
 }
