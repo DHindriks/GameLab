@@ -88,8 +88,10 @@ public class BaseServer : MonoBehaviour
             {
                 if (cmd == NetworkEvent.Type.Data)
                 {
-                    uint number = stream.ReadByte();
-                    Debug.Log("Got " + number + " from the client");
+                    //uint number = stream.ReadByte();
+                    //Debug.Log("Got " + number + " from the client");
+                    OnData(stream);
+
                 }
                 else if (cmd == NetworkEvent.Type.Disconnect)
                 {
@@ -98,5 +100,20 @@ public class BaseServer : MonoBehaviour
                 }
             }
         }
+    }
+
+    public virtual void OnData(DataStreamReader stream)
+    {
+        NetMessage msg = null;
+        var opCode = (OpCode)stream.ReadByte();
+
+        switch (opCode)
+        {
+            case OpCode.PLAYER_POSITION: msg = new Net_PlayerPosition(stream); break;
+            default: Debug.LogError("recieved msg had no OpCode"); break;
+        }
+
+        msg.RecievedOnServer();
+
     }
 }

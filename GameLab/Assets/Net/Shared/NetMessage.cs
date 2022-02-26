@@ -10,8 +10,19 @@ public class NetMessage
 
     }
 
-    public virtual void Deserialize()
+    public virtual void Deserialize(DataStreamReader reader)
     {
 
     }
+
+    public virtual void RecievedOnClient()
+    {
+
+    }
+
+    public virtual void RecievedOnServer()
+    {
+
+    }
+
 }
