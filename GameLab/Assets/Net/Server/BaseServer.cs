@@ -20,7 +20,7 @@ public class BaseServer : MonoBehaviour
 
         driver = NetworkDriver.Create(); //Creates a reference for the driver
         NetworkEndPoint endpoint = NetworkEndPoint.AnyIpv4; // Who can connect to us
-        endpoint.Port = 5522;
+        endpoint.Port = 8000;
 
         if (driver.Bind(endpoint) != 0)
             Debug.Log("There was an error binding to port " + endpoint.Port);
@@ -32,6 +32,7 @@ public class BaseServer : MonoBehaviour
         //How many people can connect to the server
         //Allocator.Persistent = NetworkConnection objects are never destroyed if there is no player connected these objects then it is put back to default
         connections = new NativeList<NetworkConnection>(4, Allocator.Persistent);
+        Debug.Log("server created");
     }
     public virtual void ShutDown()
     {
@@ -113,7 +114,22 @@ public class BaseServer : MonoBehaviour
             default: Debug.LogError("recieved msg had no OpCode"); break;
         }
 
-        msg.RecievedOnServer();
+        msg.RecievedOnServer(this);
 
+    }
+
+    public virtual void Broadcast(NetMessage msg)
+    {
+        for (int i = 0; i < connections.Length; i++)
+            if (connections[i].IsCreated)
+                SendToClient(connections[i], msg);
+    }
+
+    public virtual void SendToClient(NetworkConnection connection, NetMessage msg)
+    {
+        DataStreamWriter writer;
+        driver.BeginSend(connection, out writer);
+        msg.Serialize(ref writer);
+        driver.EndSend(writer);
     }
 }

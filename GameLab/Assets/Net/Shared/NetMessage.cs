@@ -20,7 +20,7 @@ public class NetMessage
 
     }
 
-    public virtual void RecievedOnServer()
+    public virtual void RecievedOnServer(BaseServer server)
     {
 
     }
