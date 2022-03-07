@@ -42,12 +42,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump")&& currentJumps > 0)
         {
-            rb.velocity = Vector2.up * JumpForce;
+            rb.velocity = new Vector2(rb.velocity.x, JumpForce);
             currentJumps--;
         }else if (Input.GetButtonDown("Jump")&& grounded)
         {
             currentJumps = Jumps;
-            rb.velocity = Vector2.up * JumpForce;
+            rb.velocity = new Vector2(rb.velocity.x, JumpForce);
             currentJumps--;
         }
 
@@ -66,10 +66,10 @@ public class PlayerMovement : MonoBehaviour
 
         grounded = Physics2D.OverlapCircle(GroundCheck.position, CheckRadius, GroundLayers);
 
-        if (Input.GetAxis("Horizontal") != 0)
+        if (Input.GetAxis("Horizontal") != 0 && !Crouching)
         {
-            rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, rb.velocity.y);
-
+            rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, 0), ForceMode2D.Force);
+            //rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, rb.velocity.y);
             if (!FacingRight && Input.GetAxis("Horizontal") > 0)
             {
                 Flip();
@@ -78,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
                 Flip();
             }
         }
+        rb.velocity = new Vector2(rb.velocity.x * (float)0.970, rb.velocity.y);
     }
 
     void crouch(bool crouched)
