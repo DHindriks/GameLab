@@ -59,6 +59,14 @@ public class PlayerMovement : MonoBehaviour
             crouch(false);
         }
 
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * 2.5f * Time.deltaTime;
+        }else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * 2f * Time.deltaTime;
+        }
+
     }
 
     void FixedUpdate()
