@@ -59,6 +59,11 @@ public class PlayerMovement : MonoBehaviour
             crouch(false);
         }
 
+        if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") != 0 || Input.GetButtonUp("Horizontal") && Input.GetAxisRaw("Horizontal") != 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x / 2, rb.velocity.y);
+        }
+
         if (rb.velocity.y < 0)
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * 2.5f * Time.deltaTime;
