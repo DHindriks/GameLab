@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") != 0 || Input.GetButtonUp("Horizontal") && Input.GetAxisRaw("Horizontal") != 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x / 2, rb.velocity.y);
+            rb.velocity = new Vector2(rb.velocity.x / 4, rb.velocity.y);
         }
 
         if (rb.velocity.y < 0)
