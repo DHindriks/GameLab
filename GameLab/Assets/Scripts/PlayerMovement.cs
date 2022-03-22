@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] float speed = 75;
     [SerializeField] float JumpForce = 5;
-    [SerializeField] float Jumps = 1;
-    float currentJumps;
+    [SerializeField] int Jumps = 1;
+    int currentJumps;
 
     //orientation vars
     bool FacingRight = true;
