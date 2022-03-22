@@ -42,12 +42,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump")&& currentJumps > 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+            rb.AddForce(Vector2.up * JumpForce);
             currentJumps--;
         }else if (Input.GetButtonDown("Jump")&& grounded)
         {
             currentJumps = Jumps;
-            rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+            rb.AddForce(Vector2.up * JumpForce);
             currentJumps--;
         }
 
@@ -57,6 +57,19 @@ public class PlayerMovement : MonoBehaviour
         }else if (Input.GetButtonUp("Crouch"))
         {
             crouch(false);
+        }
+
+        if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") != 0 || Input.GetButtonUp("Horizontal") && Input.GetAxisRaw("Horizontal") != 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x / 4, rb.velocity.y);
+        }
+
+        if (rb.velocity.y < 0)
+        {
+            rb.AddForce(Vector2.up * Physics2D.gravity.y * 300 * Time.deltaTime);
+        }else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            rb.AddForce(Vector2.up * Physics2D.gravity.y * 200 * Time.deltaTime);
         }
 
     }
@@ -69,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0 && !Crouching)
         {
             rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, 0), ForceMode2D.Force);
-            //rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, rb.velocity.y);
             if (!FacingRight && Input.GetAxis("Horizontal") > 0)
             {
                 Flip();
