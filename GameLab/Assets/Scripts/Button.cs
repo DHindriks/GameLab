@@ -41,16 +41,19 @@ public class Button : MonoBehaviour
 
     public void SetStatus(bool active)
     {
-        Active = active;
+        if (active != Active)
+        {
+            Active = active;
 
-        if(active)
-        {
-            GetComponent<SpriteRenderer>().color = Color.green;
-            OnActivate.Invoke();
-        }else
-        {
-            GetComponent<SpriteRenderer>().color = Color.red;
-            OnDeactivate.Invoke();
+            if(active)
+            {
+                GetComponent<SpriteRenderer>().color = Color.green;
+                OnActivate.Invoke();
+            }else
+            {
+                GetComponent<SpriteRenderer>().color = Color.red;
+                OnDeactivate.Invoke();
+            }
         }
     }
 
