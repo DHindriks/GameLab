@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
     }
     public void onClickExit()
     {
-        Application.Quit();
+
     }
     public void onClickHost()
     {
