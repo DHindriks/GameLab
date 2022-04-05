@@ -53,6 +53,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Join"",
+                    ""type"": ""Button"",
+                    ""id"": ""a244f298-2c3a-4b8b-89df-b9fdaabec853"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -113,11 +122,33 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""417f90f5-2de6-4610-86f5-b6efbe1f7261"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c9bbfe9b-da81-4fd5-bfa6-8345c2f84937"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f6f31cb-c658-48e3-a711-a1fc2845a301"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -130,6 +161,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Duck"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11d94e05-d2dc-418d-a99f-74995658c4c7"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""547198bb-e992-43b6-8b42-e5c1670ef344"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Join"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -152,6 +205,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -160,6 +224,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Game_Move = m_Game.FindAction("Move", throwIfNotFound: true);
         m_Game_Jump = m_Game.FindAction("Jump", throwIfNotFound: true);
         m_Game_Duck = m_Game.FindAction("Duck", throwIfNotFound: true);
+        m_Game_Join = m_Game.FindAction("Join", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -222,6 +287,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_Move;
     private readonly InputAction m_Game_Jump;
     private readonly InputAction m_Game_Duck;
+    private readonly InputAction m_Game_Join;
     public struct GameActions
     {
         private @PlayerControls m_Wrapper;
@@ -229,6 +295,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Game_Move;
         public InputAction @Jump => m_Wrapper.m_Game_Jump;
         public InputAction @Duck => m_Wrapper.m_Game_Duck;
+        public InputAction @Join => m_Wrapper.m_Game_Join;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -247,6 +314,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Duck.started -= m_Wrapper.m_GameActionsCallbackInterface.OnDuck;
                 @Duck.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnDuck;
                 @Duck.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnDuck;
+                @Join.started -= m_Wrapper.m_GameActionsCallbackInterface.OnJoin;
+                @Join.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnJoin;
+                @Join.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnJoin;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -260,6 +330,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Duck.started += instance.OnDuck;
                 @Duck.performed += instance.OnDuck;
                 @Duck.canceled += instance.OnDuck;
+                @Join.started += instance.OnJoin;
+                @Join.performed += instance.OnJoin;
+                @Join.canceled += instance.OnJoin;
             }
         }
     }
@@ -273,10 +346,20 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_KeyboardSchemeIndex];
         }
     }
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
+    {
+        get
+        {
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
+        }
+    }
     public interface IGameActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnDuck(InputAction.CallbackContext context);
+        void OnJoin(InputAction.CallbackContext context);
     }
 }

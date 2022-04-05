@@ -34,6 +34,7 @@ namespace TarodevController {
         void Awake()
         {
             Invoke(nameof(Activate), 0.5f);
+            mapControls();
         }
 
         void Activate()
