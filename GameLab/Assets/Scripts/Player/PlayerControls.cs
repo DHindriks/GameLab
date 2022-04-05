@@ -53,6 +53,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Join"",
+                    ""type"": ""Button"",
+                    ""id"": ""a244f298-2c3a-4b8b-89df-b9fdaabec853"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -113,12 +122,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    ""id"": ""2f37385a-ee2e-4f7a-8f95-5410a5c4c685"",
-=======
                     ""id"": ""417f90f5-2de6-4610-86f5-b6efbe1f7261"",
->>>>>>> parent of 4b8cf44 (Change the schemes)
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -129,8 +133,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-=======
->>>>>>> parent of de60e79 (Local coop developed)
                     ""id"": ""c9bbfe9b-da81-4fd5-bfa6-8345c2f84937"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -142,12 +144,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    ""id"": ""53745ea8-a2e6-43bd-b7e5-a40efab54730"",
-=======
                     ""id"": ""8f6f31cb-c658-48e3-a711-a1fc2845a301"",
->>>>>>> parent of 4b8cf44 (Change the schemes)
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -158,8 +155,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-=======
->>>>>>> parent of de60e79 (Local coop developed)
                     ""id"": ""4b654e2d-e669-488c-a83c-40ea6ba0ef54"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
@@ -168,7 +163,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Duck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-<<<<<<< HEAD
                 },
                 {
                     ""name"": """",
@@ -191,8 +185,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Join"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-=======
->>>>>>> parent of de60e79 (Local coop developed)
                 }
             ]
         }
@@ -211,10 +203,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""devicePath"": ""<Mouse>"",
                     ""isOptional"": true,
                     ""isOR"": false
-<<<<<<< HEAD
-<<<<<<< HEAD
-                },
-=======
                 }
             ]
         },
@@ -222,39 +210,21 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             ""name"": ""Gamepad"",
             ""bindingGroup"": ""Gamepad"",
             ""devices"": [
->>>>>>> parent of 4b8cf44 (Change the schemes)
                 {
                     ""devicePath"": ""<Gamepad>"",
                     ""isOptional"": false,
                     ""isOR"": false
-=======
->>>>>>> parent of de60e79 (Local coop developed)
                 }
             ]
         }
     ]
 }");
-<<<<<<< HEAD
-<<<<<<< HEAD
-        // Default
-        m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
-        m_Default_Move = m_Default.FindAction("Move", throwIfNotFound: true);
-        m_Default_Jump = m_Default.FindAction("Jump", throwIfNotFound: true);
-        m_Default_Duck = m_Default.FindAction("Duck", throwIfNotFound: true);
-        m_Default_Join = m_Default.FindAction("Join", throwIfNotFound: true);
-=======
-=======
->>>>>>> parent of 4b8cf44 (Change the schemes)
         // Game
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_Move = m_Game.FindAction("Move", throwIfNotFound: true);
         m_Game_Jump = m_Game.FindAction("Jump", throwIfNotFound: true);
         m_Game_Duck = m_Game.FindAction("Duck", throwIfNotFound: true);
-<<<<<<< HEAD
->>>>>>> parent of de60e79 (Local coop developed)
-=======
         m_Game_Join = m_Game.FindAction("Join", throwIfNotFound: true);
->>>>>>> parent of 4b8cf44 (Change the schemes)
     }
 
     public void Dispose()
@@ -311,35 +281,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // Default
-    private readonly InputActionMap m_Default;
-    private IDefaultActions m_DefaultActionsCallbackInterface;
-    private readonly InputAction m_Default_Move;
-    private readonly InputAction m_Default_Jump;
-    private readonly InputAction m_Default_Duck;
-    private readonly InputAction m_Default_Join;
-    public struct DefaultActions
-    {
-        private @PlayerControls m_Wrapper;
-        public DefaultActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Default_Move;
-        public InputAction @Jump => m_Wrapper.m_Default_Jump;
-        public InputAction @Duck => m_Wrapper.m_Default_Duck;
-        public InputAction @Join => m_Wrapper.m_Default_Join;
-        public InputActionMap Get() { return m_Wrapper.m_Default; }
-=======
-    // Game
-    private readonly InputActionMap m_Game;
-    private IGameActions m_GameActionsCallbackInterface;
-    private readonly InputAction m_Game_Move;
-    private readonly InputAction m_Game_Jump;
-    private readonly InputAction m_Game_Duck;
-    public struct GameActions
-    {
-        private @PlayerControls m_Wrapper;
-=======
     // Game
     private readonly InputActionMap m_Game;
     private IGameActions m_GameActionsCallbackInterface;
@@ -350,18 +291,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     public struct GameActions
     {
         private @PlayerControls m_Wrapper;
->>>>>>> parent of 4b8cf44 (Change the schemes)
         public GameActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Game_Move;
         public InputAction @Jump => m_Wrapper.m_Game_Jump;
         public InputAction @Duck => m_Wrapper.m_Game_Duck;
-<<<<<<< HEAD
-        public InputActionMap Get() { return m_Wrapper.m_Game; }
->>>>>>> parent of de60e79 (Local coop developed)
-=======
         public InputAction @Join => m_Wrapper.m_Game_Join;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
->>>>>>> parent of 4b8cf44 (Change the schemes)
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
@@ -370,23 +305,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_GameActionsCallbackInterface != null)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                @Move.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMove;
-                @Jump.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
-                @Duck.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnDuck;
-                @Duck.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnDuck;
-                @Duck.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnDuck;
-                @Join.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJoin;
-                @Join.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJoin;
-                @Join.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJoin;
-=======
-=======
->>>>>>> parent of 4b8cf44 (Change the schemes)
                 @Move.started -= m_Wrapper.m_GameActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnMove;
@@ -396,13 +314,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Duck.started -= m_Wrapper.m_GameActionsCallbackInterface.OnDuck;
                 @Duck.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnDuck;
                 @Duck.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnDuck;
-<<<<<<< HEAD
->>>>>>> parent of de60e79 (Local coop developed)
-=======
                 @Join.started -= m_Wrapper.m_GameActionsCallbackInterface.OnJoin;
                 @Join.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnJoin;
                 @Join.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnJoin;
->>>>>>> parent of 4b8cf44 (Change the schemes)
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -416,15 +330,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Duck.started += instance.OnDuck;
                 @Duck.performed += instance.OnDuck;
                 @Duck.canceled += instance.OnDuck;
+                @Join.started += instance.OnJoin;
+                @Join.performed += instance.OnJoin;
+                @Join.canceled += instance.OnJoin;
             }
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public DefaultActions @Default => new DefaultActions(this);
-    private int m_GameSchemeIndex = -1;
-    public InputControlScheme GameScheme
-=======
     public GameActions @Game => new GameActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
@@ -437,7 +348,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     }
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
->>>>>>> parent of 4b8cf44 (Change the schemes)
     {
         get
         {
@@ -445,27 +355,11 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
-<<<<<<< HEAD
-    public interface IDefaultActions
-=======
-    public GameActions @Game => new GameActions(this);
-    private int m_KeyboardSchemeIndex = -1;
-    public InputControlScheme KeyboardScheme
-    {
-        get
-        {
-            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
-            return asset.controlSchemes[m_KeyboardSchemeIndex];
-        }
-    }
     public interface IGameActions
->>>>>>> parent of de60e79 (Local coop developed)
-=======
-    public interface IGameActions
->>>>>>> parent of 4b8cf44 (Change the schemes)
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnDuck(InputAction.CallbackContext context);
+        void OnJoin(InputAction.CallbackContext context);
     }
 }

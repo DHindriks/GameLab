@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Join",
+                    "type": "Button",
+                    "id": "a244f298-2c3a-4b8b-89df-b9fdaabec853",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -91,12 +100,7 @@
                 },
                 {
                     "name": "",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    "id": "2f37385a-ee2e-4f7a-8f95-5410a5c4c685",
-=======
                     "id": "417f90f5-2de6-4610-86f5-b6efbe1f7261",
->>>>>>> parent of 4b8cf44 (Change the schemes)
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
@@ -107,8 +111,6 @@
                 },
                 {
                     "name": "",
-=======
->>>>>>> parent of de60e79 (Local coop developed)
                     "id": "c9bbfe9b-da81-4fd5-bfa6-8345c2f84937",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -120,12 +122,7 @@
                 },
                 {
                     "name": "",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    "id": "53745ea8-a2e6-43bd-b7e5-a40efab54730",
-=======
                     "id": "8f6f31cb-c658-48e3-a711-a1fc2845a301",
->>>>>>> parent of 4b8cf44 (Change the schemes)
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
@@ -136,8 +133,6 @@
                 },
                 {
                     "name": "",
-=======
->>>>>>> parent of de60e79 (Local coop developed)
                     "id": "4b654e2d-e669-488c-a83c-40ea6ba0ef54",
                     "path": "<Keyboard>/s",
                     "interactions": "",
@@ -146,7 +141,6 @@
                     "action": "Duck",
                     "isComposite": false,
                     "isPartOfComposite": false
-<<<<<<< HEAD
                 },
                 {
                     "name": "",
@@ -169,8 +163,6 @@
                     "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
-=======
->>>>>>> parent of de60e79 (Local coop developed)
                 }
             ]
         }
@@ -189,10 +181,6 @@
                     "devicePath": "<Mouse>",
                     "isOptional": true,
                     "isOR": false
-<<<<<<< HEAD
-<<<<<<< HEAD
-                },
-=======
                 }
             ]
         },
@@ -200,13 +188,10 @@
             "name": "Gamepad",
             "bindingGroup": "Gamepad",
             "devices": [
->>>>>>> parent of 4b8cf44 (Change the schemes)
                 {
                     "devicePath": "<Gamepad>",
                     "isOptional": false,
                     "isOR": false
-=======
->>>>>>> parent of de60e79 (Local coop developed)
                 }
             ]
         }
