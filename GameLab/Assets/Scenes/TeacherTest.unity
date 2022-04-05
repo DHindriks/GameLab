@@ -323,6 +323,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 2155804471517031826, guid: 843361e45573d9c4ebbed2c2808d5669, type: 3}
       propertyPath: m_DefaultActionMap
       value: Default
@@ -335,6 +336,8 @@ PrefabInstance:
       propertyPath: m_NeverAutoSwitchControlSchemes
       value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 4b8cf44 (Change the schemes)
     - target: {fileID: 4949398991367284449, guid: 843361e45573d9c4ebbed2c2808d5669, type: 3}
 =======
     - target: {fileID: 1223195698, guid: 42303504a4fc90a43bc5178df9876bf2, type: 3}

@@ -24,7 +24,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Default"",
+            ""name"": ""Game"",
             ""id"": ""c40d34d5-ddaa-4932-81a7-265b571b5f6e"",
             ""actions"": [
                 {
@@ -73,7 +73,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Game"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -84,7 +84,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Game"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -95,7 +95,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Game"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -106,7 +106,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Game"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -114,11 +114,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
 <<<<<<< HEAD
+<<<<<<< HEAD
                     ""id"": ""2f37385a-ee2e-4f7a-8f95-5410a5c4c685"",
+=======
+                    ""id"": ""417f90f5-2de6-4610-86f5-b6efbe1f7261"",
+>>>>>>> parent of 4b8cf44 (Change the schemes)
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Game"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -131,7 +135,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Game"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -139,11 +143,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
 <<<<<<< HEAD
+<<<<<<< HEAD
                     ""id"": ""53745ea8-a2e6-43bd-b7e5-a40efab54730"",
+=======
+                    ""id"": ""8f6f31cb-c658-48e3-a711-a1fc2845a301"",
+>>>>>>> parent of 4b8cf44 (Change the schemes)
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Game"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -156,7 +164,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Game"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Duck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -168,18 +176,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Game"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Join"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9224e374-d25a-4659-b44a-ad4d20d81aa4"",
+                    ""id"": ""547198bb-e992-43b6-8b42-e5c1670ef344"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Game"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Join"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -191,8 +199,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""Game"",
-            ""bindingGroup"": ""Game"",
+            ""name"": ""Keyboard"",
+            ""bindingGroup"": ""Keyboard"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -204,10 +212,20 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isOptional"": true,
                     ""isOR"": false
 <<<<<<< HEAD
+<<<<<<< HEAD
                 },
+=======
+                }
+            ]
+        },
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": [
+>>>>>>> parent of 4b8cf44 (Change the schemes)
                 {
                     ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": true,
+                    ""isOptional"": false,
                     ""isOR"": false
 =======
 >>>>>>> parent of de60e79 (Local coop developed)
@@ -217,6 +235,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     ]
 }");
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Default
         m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
         m_Default_Move = m_Default.FindAction("Move", throwIfNotFound: true);
@@ -224,12 +243,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Default_Duck = m_Default.FindAction("Duck", throwIfNotFound: true);
         m_Default_Join = m_Default.FindAction("Join", throwIfNotFound: true);
 =======
+=======
+>>>>>>> parent of 4b8cf44 (Change the schemes)
         // Game
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_Move = m_Game.FindAction("Move", throwIfNotFound: true);
         m_Game_Jump = m_Game.FindAction("Jump", throwIfNotFound: true);
         m_Game_Duck = m_Game.FindAction("Duck", throwIfNotFound: true);
+<<<<<<< HEAD
 >>>>>>> parent of de60e79 (Local coop developed)
+=======
+        m_Game_Join = m_Game.FindAction("Join", throwIfNotFound: true);
+>>>>>>> parent of 4b8cf44 (Change the schemes)
     }
 
     public void Dispose()
@@ -287,6 +312,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Default
     private readonly InputActionMap m_Default;
     private IDefaultActions m_DefaultActionsCallbackInterface;
@@ -313,20 +339,38 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     public struct GameActions
     {
         private @PlayerControls m_Wrapper;
+=======
+    // Game
+    private readonly InputActionMap m_Game;
+    private IGameActions m_GameActionsCallbackInterface;
+    private readonly InputAction m_Game_Move;
+    private readonly InputAction m_Game_Jump;
+    private readonly InputAction m_Game_Duck;
+    private readonly InputAction m_Game_Join;
+    public struct GameActions
+    {
+        private @PlayerControls m_Wrapper;
+>>>>>>> parent of 4b8cf44 (Change the schemes)
         public GameActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Game_Move;
         public InputAction @Jump => m_Wrapper.m_Game_Jump;
         public InputAction @Duck => m_Wrapper.m_Game_Duck;
+<<<<<<< HEAD
         public InputActionMap Get() { return m_Wrapper.m_Game; }
 >>>>>>> parent of de60e79 (Local coop developed)
+=======
+        public InputAction @Join => m_Wrapper.m_Game_Join;
+        public InputActionMap Get() { return m_Wrapper.m_Game; }
+>>>>>>> parent of 4b8cf44 (Change the schemes)
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(DefaultActions set) { return set.Get(); }
-        public void SetCallbacks(IDefaultActions instance)
+        public static implicit operator InputActionMap(GameActions set) { return set.Get(); }
+        public void SetCallbacks(IGameActions instance)
         {
-            if (m_Wrapper.m_DefaultActionsCallbackInterface != null)
+            if (m_Wrapper.m_GameActionsCallbackInterface != null)
             {
+<<<<<<< HEAD
 <<<<<<< HEAD
                 @Move.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMove;
@@ -341,6 +385,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Join.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJoin;
                 @Join.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJoin;
 =======
+=======
+>>>>>>> parent of 4b8cf44 (Change the schemes)
                 @Move.started -= m_Wrapper.m_GameActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnMove;
@@ -350,9 +396,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Duck.started -= m_Wrapper.m_GameActionsCallbackInterface.OnDuck;
                 @Duck.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnDuck;
                 @Duck.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnDuck;
+<<<<<<< HEAD
 >>>>>>> parent of de60e79 (Local coop developed)
+=======
+                @Join.started -= m_Wrapper.m_GameActionsCallbackInterface.OnJoin;
+                @Join.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnJoin;
+                @Join.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnJoin;
+>>>>>>> parent of 4b8cf44 (Change the schemes)
             }
-            m_Wrapper.m_DefaultActionsCallbackInterface = instance;
+            m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Move.started += instance.OnMove;
@@ -368,16 +420,32 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     public DefaultActions @Default => new DefaultActions(this);
     private int m_GameSchemeIndex = -1;
     public InputControlScheme GameScheme
+=======
+    public GameActions @Game => new GameActions(this);
+    private int m_KeyboardSchemeIndex = -1;
+    public InputControlScheme KeyboardScheme
     {
         get
         {
-            if (m_GameSchemeIndex == -1) m_GameSchemeIndex = asset.FindControlSchemeIndex("Game");
-            return asset.controlSchemes[m_GameSchemeIndex];
+            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+            return asset.controlSchemes[m_KeyboardSchemeIndex];
         }
     }
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
+>>>>>>> parent of 4b8cf44 (Change the schemes)
+    {
+        get
+        {
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
+        }
+    }
+<<<<<<< HEAD
     public interface IDefaultActions
 =======
     public GameActions @Game => new GameActions(this);
@@ -392,6 +460,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     }
     public interface IGameActions
 >>>>>>> parent of de60e79 (Local coop developed)
+=======
+    public interface IGameActions
+>>>>>>> parent of 4b8cf44 (Change the schemes)
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
