@@ -76,13 +76,12 @@ namespace TarodevController {
                 //X = UnityEngine.Input.GetAxisRaw("Horizontal")
 
                 //My script with the new input system
-                move = playerControls.Game.Move.ReadValue<Vector2>(),
-                JumpDown = playerControls.Game.Jump.triggered,
-                JumpUp = playerControls.Game.Jump.triggered
+                Move = playerControls.Game.Move.ReadValue<Vector2>(),
+                Jump = playerControls.Game.Jump.ReadValue<float>(),
 
 
             };
-            if (Input.JumpDown) {
+            if (Input.Jump == 1) {
                 _lastJumpPressed = Time.time;
             }
         }
@@ -181,15 +180,15 @@ namespace TarodevController {
         [SerializeField] private float _apexBonus = 2;
 
         private void CalculateWalk() {
-            if (Input.move.x != 0) {
+            if (Input.Move.x != 0) {
                 // Set horizontal move speed
-                _currentHorizontalSpeed += Input.move.x * _acceleration * Time.deltaTime;
+                _currentHorizontalSpeed += Input.Move.x * _acceleration * Time.deltaTime;
 
                 // clamped by max frame movement
                 _currentHorizontalSpeed = Mathf.Clamp(_currentHorizontalSpeed, -_moveClamp, _moveClamp);
 
                 // Apply bonus at the apex of a jump
-                var apexBonus = Mathf.Sign(Input.move.x) * _apexBonus * _apexPoint;
+                var apexBonus = Mathf.Sign(Input.Move.x) * _apexBonus * _apexPoint;
                 _currentHorizontalSpeed += apexBonus * Time.deltaTime;
             }
             else {
@@ -258,7 +257,7 @@ namespace TarodevController {
 
         private void CalculateJump() {
             // Jump if: grounded or within coyote threshold || sufficient jump buffer
-            if (Input.JumpDown && CanUseCoyote || HasBufferedJump) {
+            if (Input.Jump == 1 && CanUseCoyote || HasBufferedJump) {
                 _currentVerticalSpeed = _jumpHeight;
                 _endedJumpEarly = false;
                 _coyoteUsable = false;
@@ -270,7 +269,7 @@ namespace TarodevController {
             }
 
             // End the jump early if button released
-            if (!_colDown && Input.JumpUp && !_endedJumpEarly && Velocity.y > 0) {
+            if (!_colDown && Input.Jump == 0 && !_endedJumpEarly && Velocity.y > 0) {
                 // _currentVerticalSpeed = 0;
                 _endedJumpEarly = true;
             }

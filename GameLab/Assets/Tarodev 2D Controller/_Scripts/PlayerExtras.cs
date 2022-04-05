@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace TarodevController {
  
     public struct FrameInput {
         //Tarodevs old script
         //public float X,Y;
-        public bool JumpDown;
-        public bool JumpUp;
+        //public bool JumpDown;
+        //public bool JumpUp;
 
         //My script
-        public Vector2 move;
-        //public float JumpDown;
-        //public float JumpUp;
+        public Vector2 Move;
+        public float Jump;
     }
 
     public interface IPlayerController {
