@@ -28,6 +28,7 @@ namespace TarodevController {
         private InputAction moveAction;
         private InputAction jumpAction;
         private InputAction duckAction;
+        private bool canJump = true;
 
         // This is horrible, but for some reason colliders are not fully established when update starts...
         private bool _active;
@@ -88,8 +89,12 @@ namespace TarodevController {
 
 
             };
-            if (Input.Jump == 1) {
+            if (Input.Jump == 1)
+            {
                 _lastJumpPressed = Time.time;
+            } else if (Input.Jump == 0)
+            {
+                //canJump = true;
             }
         }
 
@@ -263,13 +268,16 @@ namespace TarodevController {
         }
 
         private void CalculateJump() {
+            Debug.Log(canJump);
             // Jump if: grounded or within coyote threshold || sufficient jump buffer
-            if (Input.Jump == 1 && CanUseCoyote || HasBufferedJump) {
+            if (/*canJump && */(Input.Jump == 1 && CanUseCoyote || HasBufferedJump))
+            {
                 _currentVerticalSpeed = _jumpHeight;
                 _endedJumpEarly = false;
                 _coyoteUsable = false;
                 _timeLeftGrounded = float.MinValue;
                 JumpingThisFrame = true;
+                //canJump = false;
             }
             else {
                 JumpingThisFrame = false;
