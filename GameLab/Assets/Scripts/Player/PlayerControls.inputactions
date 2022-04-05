@@ -2,7 +2,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Game",
+            "name": "Default",
             "id": "c40d34d5-ddaa-4932-81a7-265b571b5f6e",
             "actions": [
                 {
@@ -60,7 +60,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Game",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -71,7 +71,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Game",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -82,7 +82,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Game",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -93,18 +93,18 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Game",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "417f90f5-2de6-4610-86f5-b6efbe1f7261",
+                    "id": "2f37385a-ee2e-4f7a-8f95-5410a5c4c685",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Game",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -115,18 +115,18 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Game",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "8f6f31cb-c658-48e3-a711-a1fc2845a301",
+                    "id": "53745ea8-a2e6-43bd-b7e5-a40efab54730",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Game",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -137,7 +137,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Game",
                     "action": "Duck",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -148,18 +148,18 @@
                     "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Game",
                     "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "547198bb-e992-43b6-8b42-e5c1670ef344",
+                    "id": "9224e374-d25a-4659-b44a-ad4d20d81aa4",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Game",
                     "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -169,8 +169,8 @@
     ],
     "controlSchemes": [
         {
-            "name": "Keyboard",
-            "bindingGroup": "Keyboard",
+            "name": "Game",
+            "bindingGroup": "Game",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
@@ -181,16 +181,10 @@
                     "devicePath": "<Mouse>",
                     "isOptional": true,
                     "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
-            "devices": [
+                },
                 {
                     "devicePath": "<Gamepad>",
-                    "isOptional": false,
+                    "isOptional": true,
                     "isOR": false
                 }
             ]

@@ -24,7 +24,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Game"",
+            ""name"": ""Default"",
             ""id"": ""c40d34d5-ddaa-4932-81a7-265b571b5f6e"",
             ""actions"": [
                 {
@@ -82,7 +82,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Game"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -93,7 +93,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Game"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -104,7 +104,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Game"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -115,18 +115,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Game"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
-                    ""id"": ""417f90f5-2de6-4610-86f5-b6efbe1f7261"",
+                    ""id"": ""2f37385a-ee2e-4f7a-8f95-5410a5c4c685"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Game"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -137,18 +137,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Game"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8f6f31cb-c658-48e3-a711-a1fc2845a301"",
+                    ""id"": ""53745ea8-a2e6-43bd-b7e5-a40efab54730"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Game"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -159,7 +159,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Game"",
                     ""action"": ""Duck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -170,18 +170,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Game"",
                     ""action"": ""Join"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""547198bb-e992-43b6-8b42-e5c1670ef344"",
+                    ""id"": ""9224e374-d25a-4659-b44a-ad4d20d81aa4"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Game"",
                     ""action"": ""Join"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -191,8 +191,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""Keyboard"",
-            ""bindingGroup"": ""Keyboard"",
+            ""name"": ""Game"",
+            ""bindingGroup"": ""Game"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -203,28 +203,22 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""devicePath"": ""<Mouse>"",
                     ""isOptional"": true,
                     ""isOR"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Gamepad"",
-            ""bindingGroup"": ""Gamepad"",
-            ""devices"": [
+                },
                 {
                     ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": false,
+                    ""isOptional"": true,
                     ""isOR"": false
                 }
             ]
         }
     ]
 }");
-        // Game
-        m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
-        m_Game_Move = m_Game.FindAction("Move", throwIfNotFound: true);
-        m_Game_Jump = m_Game.FindAction("Jump", throwIfNotFound: true);
-        m_Game_Duck = m_Game.FindAction("Duck", throwIfNotFound: true);
-        m_Game_Join = m_Game.FindAction("Join", throwIfNotFound: true);
+        // Default
+        m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
+        m_Default_Move = m_Default.FindAction("Move", throwIfNotFound: true);
+        m_Default_Jump = m_Default.FindAction("Jump", throwIfNotFound: true);
+        m_Default_Duck = m_Default.FindAction("Duck", throwIfNotFound: true);
+        m_Default_Join = m_Default.FindAction("Join", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -281,44 +275,44 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Game
-    private readonly InputActionMap m_Game;
-    private IGameActions m_GameActionsCallbackInterface;
-    private readonly InputAction m_Game_Move;
-    private readonly InputAction m_Game_Jump;
-    private readonly InputAction m_Game_Duck;
-    private readonly InputAction m_Game_Join;
-    public struct GameActions
+    // Default
+    private readonly InputActionMap m_Default;
+    private IDefaultActions m_DefaultActionsCallbackInterface;
+    private readonly InputAction m_Default_Move;
+    private readonly InputAction m_Default_Jump;
+    private readonly InputAction m_Default_Duck;
+    private readonly InputAction m_Default_Join;
+    public struct DefaultActions
     {
         private @PlayerControls m_Wrapper;
-        public GameActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Game_Move;
-        public InputAction @Jump => m_Wrapper.m_Game_Jump;
-        public InputAction @Duck => m_Wrapper.m_Game_Duck;
-        public InputAction @Join => m_Wrapper.m_Game_Join;
-        public InputActionMap Get() { return m_Wrapper.m_Game; }
+        public DefaultActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Default_Move;
+        public InputAction @Jump => m_Wrapper.m_Default_Jump;
+        public InputAction @Duck => m_Wrapper.m_Default_Duck;
+        public InputAction @Join => m_Wrapper.m_Default_Join;
+        public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GameActions set) { return set.Get(); }
-        public void SetCallbacks(IGameActions instance)
+        public static implicit operator InputActionMap(DefaultActions set) { return set.Get(); }
+        public void SetCallbacks(IDefaultActions instance)
         {
-            if (m_Wrapper.m_GameActionsCallbackInterface != null)
+            if (m_Wrapper.m_DefaultActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_GameActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnMove;
-                @Jump.started -= m_Wrapper.m_GameActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnJump;
-                @Duck.started -= m_Wrapper.m_GameActionsCallbackInterface.OnDuck;
-                @Duck.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnDuck;
-                @Duck.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnDuck;
-                @Join.started -= m_Wrapper.m_GameActionsCallbackInterface.OnJoin;
-                @Join.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnJoin;
-                @Join.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnJoin;
+                @Move.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMove;
+                @Jump.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
+                @Duck.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnDuck;
+                @Duck.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnDuck;
+                @Duck.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnDuck;
+                @Join.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJoin;
+                @Join.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJoin;
+                @Join.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJoin;
             }
-            m_Wrapper.m_GameActionsCallbackInterface = instance;
+            m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Move.started += instance.OnMove;
@@ -336,26 +330,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             }
         }
     }
-    public GameActions @Game => new GameActions(this);
-    private int m_KeyboardSchemeIndex = -1;
-    public InputControlScheme KeyboardScheme
+    public DefaultActions @Default => new DefaultActions(this);
+    private int m_GameSchemeIndex = -1;
+    public InputControlScheme GameScheme
     {
         get
         {
-            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
-            return asset.controlSchemes[m_KeyboardSchemeIndex];
+            if (m_GameSchemeIndex == -1) m_GameSchemeIndex = asset.FindControlSchemeIndex("Game");
+            return asset.controlSchemes[m_GameSchemeIndex];
         }
     }
-    private int m_GamepadSchemeIndex = -1;
-    public InputControlScheme GamepadScheme
-    {
-        get
-        {
-            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
-            return asset.controlSchemes[m_GamepadSchemeIndex];
-        }
-    }
-    public interface IGameActions
+    public interface IDefaultActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
