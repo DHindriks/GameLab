@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace TarodevController {
     /// <summary>
@@ -22,24 +23,17 @@ namespace TarodevController {
         private Vector3 _lastPosition;
         private float _currentHorizontalSpeed, _currentVerticalSpeed;
 
-        private PlayerControls playerControls;
+        //Input
+        private PlayerInput playerInput;
+        private InputAction moveAction;
+        private InputAction jumpAction;
+        private InputAction duckAction;
 
         // This is horrible, but for some reason colliders are not fully established when update starts...
         private bool _active;
         void Awake()
         {
             Invoke(nameof(Activate), 0.5f);
-            playerControls = new PlayerControls();
-        }
-
-        void OnEnable()
-        {
-            playerControls.Enable();
-        }
-
-        void OnDisable()
-        {
-            playerControls.Disable();
         }
 
         void Activate()
@@ -65,6 +59,18 @@ namespace TarodevController {
             MoveCharacter(); // Actually perform the axis movement
         }
 
+        #region Map the buttons
+
+        private void mapControls()
+        {
+            playerInput = GetComponent<PlayerInput>();
+            moveAction = playerInput.actions["Move"];
+            jumpAction = playerInput.actions["Jump"];
+            duckAction = playerInput.actions["Duck"];
+        }
+
+        #endregion
+
 
         #region Gather Input
 
@@ -76,8 +82,8 @@ namespace TarodevController {
                 //X = UnityEngine.Input.GetAxisRaw("Horizontal")
 
                 //My script with the new input system
-                Move = playerControls.Game.Move.ReadValue<Vector2>(),
-                Jump = playerControls.Game.Jump.ReadValue<float>(),
+                Move = moveAction.ReadValue<Vector2>(),
+                Jump = jumpAction.ReadValue<float>(),
 
 
             };
