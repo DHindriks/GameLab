@@ -22,13 +22,34 @@ namespace TarodevController {
         private Vector3 _lastPosition;
         private float _currentHorizontalSpeed, _currentVerticalSpeed;
 
+        private PlayerControls playerControls;
+
         // This is horrible, but for some reason colliders are not fully established when update starts...
         private bool _active;
-        void Awake() => Invoke(nameof(Activate), 0.5f);
-        void Activate() =>  _active = true;
+        void Awake()
+        {
+            Invoke(nameof(Activate), 0.5f);
+            playerControls = new PlayerControls();
+        }
+
+        void OnEnable()
+        {
+            playerControls.Enable();
+        }
+
+        void OnDisable()
+        {
+            playerControls.Disable();
+        }
+
+        void Activate()
+        {
+            _active = true;
+        }
         
         private void Update() {
             if(!_active) return;
+
             // Calculate velocity
             Velocity = (transform.position - _lastPosition) / Time.deltaTime;
             _lastPosition = transform.position;
@@ -49,9 +70,17 @@ namespace TarodevController {
 
         private void GatherInput() {
             Input = new FrameInput {
-                JumpDown = UnityEngine.Input.GetButtonDown("Jump"),
-                JumpUp = UnityEngine.Input.GetButtonUp("Jump"),
-                X = UnityEngine.Input.GetAxisRaw("Horizontal")
+                //Tarodev's old script
+                //JumpDown = UnityEngine.Input.GetButtonDown("Jump"),
+                //JumpUp = UnityEngine.Input.GetButtonUp("Jump"),
+                //X = UnityEngine.Input.GetAxisRaw("Horizontal")
+
+                //My script with the new input system
+                move = playerControls.Game.Move.ReadValue<Vector2>(),
+                JumpDown = playerControls.Game.Jump.triggered,
+                JumpUp = playerControls.Game.Jump.triggered
+
+
             };
             if (Input.JumpDown) {
                 _lastJumpPressed = Time.time;
@@ -152,15 +181,15 @@ namespace TarodevController {
         [SerializeField] private float _apexBonus = 2;
 
         private void CalculateWalk() {
-            if (Input.X != 0) {
+            if (Input.move.x != 0) {
                 // Set horizontal move speed
-                _currentHorizontalSpeed += Input.X * _acceleration * Time.deltaTime;
+                _currentHorizontalSpeed += Input.move.x * _acceleration * Time.deltaTime;
 
                 // clamped by max frame movement
                 _currentHorizontalSpeed = Mathf.Clamp(_currentHorizontalSpeed, -_moveClamp, _moveClamp);
 
                 // Apply bonus at the apex of a jump
-                var apexBonus = Mathf.Sign(Input.X) * _apexBonus * _apexPoint;
+                var apexBonus = Mathf.Sign(Input.move.x) * _apexBonus * _apexPoint;
                 _currentHorizontalSpeed += apexBonus * Time.deltaTime;
             }
             else {

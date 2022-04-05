@@ -5,9 +5,15 @@ using UnityEngine;
 namespace TarodevController {
  
     public struct FrameInput {
-        public float X,Y;
+        //Tarodevs old script
+        //public float X,Y;
         public bool JumpDown;
         public bool JumpUp;
+
+        //My script
+        public Vector2 move;
+        //public float JumpDown;
+        //public float JumpUp;
     }
 
     public interface IPlayerController {
