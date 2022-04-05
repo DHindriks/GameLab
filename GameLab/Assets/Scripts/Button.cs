@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,15 +7,61 @@ public class Button : MonoBehaviour
 
     public UnityEvent OnDeactivate;
 
-    // Start is called before the first frame update
-    void Start()
+    bool CheckInput;
+
+    bool Active;
+
+    [ContextMenu("Deactivate")]
+    void Deactivate()
     {
-        
+        SetStatus(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    [ContextMenu("Activate")]
+    void Activate()
     {
-        
+        SetStatus(true);
     }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            CheckInput = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            CheckInput = false;
+        }
+    }
+
+    public void SetStatus(bool active)
+    {
+        if (active != Active)
+        {
+            Active = active;
+
+            if(active)
+            {
+                GetComponent<SpriteRenderer>().color = Color.green;
+                OnActivate.Invoke();
+            }else
+            {
+                GetComponent<SpriteRenderer>().color = Color.red;
+                OnDeactivate.Invoke();
+            }
+        }
+    }
+
+    //private void Update()
+    //{
+    //    if(Input.GetButtonDown("Interact"))
+    //    {
+
+    //    }
+    //}
 }
