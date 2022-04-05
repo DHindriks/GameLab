@@ -20,10 +20,6 @@ public class CoinGeneral : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-    }
-
     public void Spawn()
     {
         int rand = Random.Range(0, platforms.Count);
@@ -36,13 +32,16 @@ public class CoinGeneral : MonoBehaviour
         gameObject.transform.position = new Vector3(platforms[rand].transform.position.x + offSet, platforms[rand].transform.position.y + 2, platforms[rand].transform.position.z);
     }
 
-    public void PickedUp()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Player")
+        {
+            Spawn();
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
         if (collision.gameObject.tag == "Player")
         {
             Spawn();
