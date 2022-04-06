@@ -29,12 +29,30 @@ namespace TarodevController {
         private InputAction jumpAction;
         private InputAction duckAction;
 
+        //TempBullshit for testing
+        [SerializeField] GameObject spriteChild;
+        [SerializeField] Sprite spr1;
+        [SerializeField] Sprite spr2;
+
+        void assignSprites()
+        {
+
+            if (playerInput.playerIndex == 1)
+            {
+                spriteChild.GetComponent<SpriteRenderer>().sprite = spr1;
+            } else if (playerInput.playerIndex == 2)
+            {
+                spriteChild.GetComponent<SpriteRenderer>().sprite = spr2;
+            }
+        }
+
         // This is horrible, but for some reason colliders are not fully established when update starts...
         private bool _active;
         void Awake()
         {
             Invoke(nameof(Activate), 0.5f);
             mapControls();
+            assignSprites();
         }
 
         void Activate()
@@ -85,6 +103,7 @@ namespace TarodevController {
                 //My script with the new input system
                 Move = moveAction.ReadValue<Vector2>(),
                 Jump = jumpAction.ReadValue<float>(),
+                
 
 
             };
@@ -92,6 +111,7 @@ namespace TarodevController {
             {
                 _lastJumpPressed = Time.time;
             }
+            Debug.Log(Input.Move);
         }
 
         #endregion
