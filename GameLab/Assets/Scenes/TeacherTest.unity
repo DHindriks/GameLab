@@ -2658,11 +2658,15 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 144370908}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   m_PlaneDistance: 6
 =======
   m_PlaneDistance: 5
 >>>>>>> Stashed changes
+=======
+  m_PlaneDistance: 100
+>>>>>>> parent of 362752d (Camera plane distance)
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
