@@ -34,6 +34,9 @@ namespace TarodevController {
         [SerializeField] Sprite spr1;
         [SerializeField] Sprite spr2;
 
+        //respawn point, is public for prototyping purposes.
+        [HideInInspector] public Vector2 RespawnPoint;
+
         void assignSprites()
         {
 
@@ -50,9 +53,11 @@ namespace TarodevController {
         private bool _active;
         void Awake()
         {
+            RespawnPoint = transform.position;
             Invoke(nameof(Activate), 0.5f);
             mapControls();
             assignSprites();
+            CalculateRayRanged();
         }
 
         void Activate()

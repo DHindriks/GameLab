@@ -7,6 +7,10 @@ public class Button : MonoBehaviour
 
     public UnityEvent OnDeactivate;
 
+    [SerializeField] Sprite ActiveSp;
+    [SerializeField] Sprite UnactiveSp;
+    [SerializeField] bool AutoDisable;
+    [SerializeField] float AutoDisableTime;
     bool CheckInput;
 
     bool Active;
@@ -23,13 +27,30 @@ public class Button : MonoBehaviour
         SetStatus(true);
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+
+        Debug.Log("ENTER");
         if (other.tag == "Player")
         {
             CheckInput = true;
+            if (!AutoDisable || AutoDisable && !Active)
+            {
+                SetStatus(!Active);
+            }
         }
     }
+
+    //private void OnTriggerStay2D(Collider2D other)
+    //{
+
+    //    Debug.Log("ENTER");
+    //    if (other.tag == "Player")
+    //    {
+    //        CheckInput = true;
+    //        SetStatus(!Active);
+    //    }
+    //}
 
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -47,19 +68,28 @@ public class Button : MonoBehaviour
 
             if(active)
             {
-                GetComponent<SpriteRenderer>().color = Color.green;
+                GetComponent<SpriteRenderer>().sprite = ActiveSp;
                 OnActivate.Invoke();
+                if (AutoDisable)
+                {
+                    Invoke(nameof(Disablebtn) , AutoDisableTime);
+                }
             }else
             {
-                GetComponent<SpriteRenderer>().color = Color.red;
+                GetComponent<SpriteRenderer>().sprite = UnactiveSp;
                 OnDeactivate.Invoke();
             }
         }
     }
 
+    void Disablebtn()
+    {
+        SetStatus(false);
+    }
+
     //private void Update()
     //{
-    //    if(Input.GetButtonDown("Interact"))
+    //    if (Input.GetButtonDown("Interact"))
     //    {
 
     //    }
