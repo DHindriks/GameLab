@@ -39,6 +39,7 @@ public class CoinGeneral : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Spawn();
+            collision.GetComponent<TarodevController.PlayerController>().AddCoin();
         }
     }
 }

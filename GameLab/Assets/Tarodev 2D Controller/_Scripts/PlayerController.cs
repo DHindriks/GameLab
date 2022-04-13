@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 namespace TarodevController {
     /// <summary>
@@ -36,6 +37,8 @@ namespace TarodevController {
 
         //respawn point, is public for prototyping purposes.
         [HideInInspector] public Vector2 RespawnPoint;
+        public int Coins;
+        [SerializeField] TextMeshProUGUI CoinCounter;
 
         void assignSprites()
         {
@@ -95,6 +98,11 @@ namespace TarodevController {
 
         #endregion
 
+        public void AddCoin(int amount = 1)
+        {
+            Coins += amount;
+            CoinCounter.text = Coins.ToString();
+        }
 
         #region Gather Input
 
