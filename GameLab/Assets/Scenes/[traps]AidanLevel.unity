@@ -2972,6 +2972,10 @@ PrefabInstance:
       propertyPath: m_NeverAutoSwitchControlSchemes
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4949398990039962681, guid: 843361e45573d9c4ebbed2c2808d5669, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 386388ac32994c749baa0196d5f527e1, type: 2}
     - target: {fileID: 4949398991367284449, guid: 843361e45573d9c4ebbed2c2808d5669, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3031,6 +3035,10 @@ PrefabInstance:
     - target: {fileID: 4949398991367284451, guid: 843361e45573d9c4ebbed2c2808d5669, type: 3}
       propertyPath: _deAcceleration
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287406455449021707, guid: 843361e45573d9c4ebbed2c2808d5669, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 843361e45573d9c4ebbed2c2808d5669, type: 3}
