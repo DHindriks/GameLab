@@ -307,7 +307,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &205084357
 MonoBehaviour:
@@ -3121,10 +3121,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6179849223075316839, guid: 843361e45573d9c4ebbed2c2808d5669, type: 3}
-      propertyPath: Team
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 843361e45573d9c4ebbed2c2808d5669, type: 3}
 --- !u!4 &1720254294 stripped
@@ -3720,7 +3716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2928658145072171609, guid: 7687dbb13aa32f04894bd931f92c52af, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2928658145072171609, guid: 7687dbb13aa32f04894bd931f92c52af, type: 3}
       propertyPath: m_LocalPosition.x
