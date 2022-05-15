@@ -20099,7 +20099,7 @@ MonoBehaviour:
   - {fileID: 4949398990039962681}
   Trails:
   - {fileID: 5808499063234485189}
-  Team: 6
+  Team: 5
 --- !u!1 &6554946016890629623
 GameObject:
   m_ObjectHideFlags: 0

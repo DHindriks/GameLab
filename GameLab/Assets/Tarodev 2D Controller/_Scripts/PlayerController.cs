@@ -124,7 +124,7 @@ namespace TarodevController {
             {
                 _lastJumpPressed = Time.time;
             }
-            Debug.Log(Input.Move);
+            //Debug.Log(Input.Move);
         }
 
         #endregion

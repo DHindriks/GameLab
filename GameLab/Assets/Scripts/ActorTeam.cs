@@ -2,16 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Teams
-{
-    None,
-    Red,
-    Blue,
-    Yellow,
-    Orange,
-    Purple,
-    Green
-}
 
 public class ActorTeam : MonoBehaviour
 {
@@ -20,7 +10,7 @@ public class ActorTeam : MonoBehaviour
     [SerializeField] List<SpriteRenderer> sprites;
     [SerializeField] List<TrailRenderer> Trails;
     public Teams Team = Teams.None;
-    Color Teamcolor;
+    [HideInInspector] public Color Teamcolor;
 
     void Start()
     {
