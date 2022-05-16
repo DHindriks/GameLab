@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ObjectiveManager : MonoBehaviour
 {
@@ -10,8 +11,31 @@ public class ObjectiveManager : MonoBehaviour
 
     [SerializeField] int CoinsNeeded;
 
+    [SerializeField] float TimeLeft;
+    [SerializeField] bool Timerunning;
+
     [SerializeField] Transform ScoreBoardL;
     [SerializeField] Transform ScoreBoardR;
+
+    [SerializeField] TextMeshProUGUI Timer;
+
+    void Update()
+    {
+        if (Timerunning && TimeLeft > 0)
+        {
+            TimeLeft -= Time.deltaTime;
+        }else if (Timerunning)
+        {
+            Timerunning = false;
+            TimeLeft = 0;
+
+            //TODO: figure out wich teams won or tied after time out here
+        }
+
+        int MinutesLeft = Mathf.FloorToInt(TimeLeft / 60);
+        int SecondsLeft = Mathf.FloorToInt(TimeLeft % 60);
+        Timer.text = MinutesLeft + ":" + SecondsLeft;
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -40,6 +64,8 @@ public class ObjectiveManager : MonoBehaviour
                 DeliveringPlayer.GetComponent<TarodevController.PlayerController>().AddCoin(-CoinsToAdd);
                 if (team.CurrentCoins >= CoinsNeeded)
                 {
+                    //TODO: End the game here
+                    Timerunning = false;
                     Debug.Log(team.ParticipatingTeam + " Won!");
                 }
                 return;
