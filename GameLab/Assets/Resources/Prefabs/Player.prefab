@@ -20099,7 +20099,8 @@ MonoBehaviour:
   - {fileID: 4949398990039962681}
   Trails:
   - {fileID: 5808499063234485189}
-  Team: 5
+  Team: 1
+  Teamcolor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6554946016890629623
 GameObject:
   m_ObjectHideFlags: 0

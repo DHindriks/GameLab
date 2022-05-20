@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 public class ActorTeam : MonoBehaviour
@@ -9,6 +10,7 @@ public class ActorTeam : MonoBehaviour
     [SerializeField] Material OutlineBase;
     [SerializeField] List<SpriteRenderer> sprites;
     [SerializeField] List<TrailRenderer> Trails;
+    [SerializeField] List<TextMeshProUGUI> Texts;
     public Teams Team = Teams.None;
     [HideInInspector] public Color Teamcolor;
 
@@ -49,14 +51,21 @@ public class ActorTeam : MonoBehaviour
                 break;
         }
 
+        //OutlineShader
         foreach (SpriteRenderer SpriteR in sprites)
         {
             SpriteR.material.SetColor("OutlineColor", Teamcolor);
         }
+        //trailRenderers
         foreach (TrailRenderer TrailR in Trails)
         {
             TrailR.startColor = Teamcolor;
             TrailR.endColor = Teamcolor;
+        }
+        //textmeshpro
+        foreach (TextMeshProUGUI Text in Texts)
+        {
+            Text.color = Teamcolor;
         }
     }
 }

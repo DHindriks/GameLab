@@ -16,6 +16,9 @@ public class UnityPlayerControls : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public int Coins;
+    [SerializeField] TextMeshProUGUI CoinCounter;
+
     //TempBullshit for testing
     [SerializeField] Sprite spr1;
     [SerializeField] Sprite spr2;
@@ -34,6 +37,12 @@ public class UnityPlayerControls : MonoBehaviour
         CalculateMovement();
         CalculateJump();
         CommitMovement();
+    }
+
+    public void AddCoin(int amount = 1)
+    {
+        Coins += amount;
+        CoinCounter.text = Coins.ToString();
     }
 
     void GatherInput()
