@@ -24,12 +24,9 @@ public class ObjectiveManager : MonoBehaviour
         if (Timerunning && TimeLeft > 0)
         {
             TimeLeft -= Time.deltaTime;
-        }else if (Timerunning)
+        }else if (Timerunning) //if there is no time left but timer is still running
         {
-            Timerunning = false;
-            TimeLeft = 0;
-
-            //TODO: figure out wich teams won or tied after time out here
+            EndGame();
         }
 
         int MinutesLeft = Mathf.FloorToInt(TimeLeft / 60);
@@ -50,6 +47,21 @@ public class ObjectiveManager : MonoBehaviour
         }
     }
 
+    void EndGame()
+    {
+        Timerunning = false;
+        TimeLeft = 0;
+        CalculateWinner();
+    }
+
+    void CalculateWinner()
+    {
+        foreach (Team team in ParticipatingTeams)
+        {
+
+        }
+    }
+
     void AddpointsToTeam(GameObject DeliveringPlayer)
     {
         int CoinsToAdd = DeliveringPlayer.GetComponent<TarodevController.PlayerController>().Coins;
@@ -64,9 +76,8 @@ public class ObjectiveManager : MonoBehaviour
                 DeliveringPlayer.GetComponent<TarodevController.PlayerController>().AddCoin(-CoinsToAdd);
                 if (team.CurrentCoins >= CoinsNeeded)
                 {
-                    //TODO: End the game here
-                    Timerunning = false;
-                    Debug.Log(team.ParticipatingTeam + " Won!");
+                    EndGame();
+
                 }
                 return;
             }
