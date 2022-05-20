@@ -16,8 +16,15 @@ public class UnityPlayerControls : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    //Scoring
     public int Coins;
     [SerializeField] TextMeshProUGUI CoinCounter;
+
+    //Player gameover
+    private int RespawnTimer;
+    Vector2 RespawnPoint;
+    [SerializeField] GameObject CoinPrefab;
+
 
     //TempBullshit for testing
     [SerializeField] Sprite spr1;
@@ -27,6 +34,7 @@ public class UnityPlayerControls : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
+        RespawnPoint = transform.position;
         mapControls();
         assignSprites();
     }
@@ -43,6 +51,17 @@ public class UnityPlayerControls : MonoBehaviour
     {
         Coins += amount;
         CoinCounter.text = Coins.ToString();
+    }
+
+    public void KillPlayer()
+    {
+        //for(int i = 0; i < Coins; i++)
+        //{
+        //    GameObject Coin = Instantiate(CoinPrefab);
+        //}
+
+        transform.position = RespawnPoint;
+        Coins = 0;
     }
 
     void GatherInput()

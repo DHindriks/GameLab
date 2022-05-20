@@ -26,7 +26,7 @@ public class SpikeTrap : MonoBehaviour
         if (collision.tag == "Player")
         {   
             //TODO: player should have Kill() function.
-            collision.transform.position = collision.GetComponent<TarodevController.PlayerController>().RespawnPoint;
+            collision.GetComponent<UnityPlayerControls>().KillPlayer();
         }
     }
 }
