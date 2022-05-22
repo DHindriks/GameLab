@@ -536,10 +536,11 @@ MonoBehaviour:
   spr1: {fileID: 21300000, guid: c64e95a77ffc0214e89663cf917fa7e4, type: 3}
   spr2: {fileID: 21300000, guid: 6f383a9249304ab43a167e77770aed25, type: 3}
   speed: 20
-  deadzone: 0.1
-  doAccelerate: 1
-  accelerationRate: 50
-  doDecelerate: 1
+  doAccelerate: 0
+  accelerationRate: 80
+  doMinStartSpeed: 0
+  minStartSpeed: 30
+  doDecelerate: 0
   decelerationRate: 250
   maxJumps: 1
   jumpSpeed: 40
@@ -547,10 +548,10 @@ MonoBehaviour:
   GroundMask:
     serializedVersion: 2
     m_Bits: 128
-  jumpApexThreshold: 5
-  jumpApexThresholdStep: 60
-  gravity: 15
-  minFallSpeed: 10
+  jumpApexThreshold: 10
+  jumpApexThresholdStep: 1000
+  gravity: 30
+  minFallSpeed: 15
   maxFallSpeed: 30
 --- !u!114 &1385834148
 MonoBehaviour:

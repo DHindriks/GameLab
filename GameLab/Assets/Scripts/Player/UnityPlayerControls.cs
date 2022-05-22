@@ -79,6 +79,9 @@ public class UnityPlayerControls : MonoBehaviour
     [Header("Acceleration")]
     [SerializeField] private bool doAccelerate = false;
     [SerializeField] private float accelerationRate;
+    [SerializeField] private float aceelerationOffset;
+    [SerializeField] private bool doMinStartSpeed;
+    [SerializeField] private float minStartSpeed;
     [SerializeField] private bool doDecelerate = false;
     [SerializeField] private float decelerationRate;
 
@@ -90,6 +93,10 @@ public class UnityPlayerControls : MonoBehaviour
         {
             if (doAccelerate)
             {
+                if (doMinStartSpeed && (Mathf.Abs(_horizontalSpeed) < minStartSpeed * Mathf.Abs(move.x) || Mathf.Sign(_horizontalSpeed) != Mathf.Sign(move.x)))
+                {
+                    _horizontalSpeed = minStartSpeed * move.x;
+                }
                 _horizontalSpeed += move.x * accelerationRate * Time.deltaTime;
                 if (Mathf.Abs(_horizontalSpeed) > speed)
                 {
@@ -152,15 +159,18 @@ public class UnityPlayerControls : MonoBehaviour
     void CalculateJump()
     {
         _verticalSpeed = float.NaN;
-        if (Physics2D.BoxCast(transform.position, new Vector2(GetComponent<BoxCollider2D>().size.x, groundCheckDistance), 0, Vector2.down, 0f, GroundMask))
+        if (Physics2D.BoxCast(transform.position, new Vector2(GetComponent<BoxCollider2D>().size.x * 0.7f, groundCheckDistance), 0, Vector2.down, 0f, GroundMask)) //the horixontal size must be lowered from the actual size so that vertical walls wont be counted as being on the ground
         {
             grounded = true;
             numberOfJumps = maxJumps;
         }
         else
         {
+            if (grounded && jump == 0)
+            {
+                numberOfJumps--;
+            }
             grounded = false;
-            numberOfJumps--;
         }
         //Keep the falling speed of the player within the boundaries
         if (rb.velocity.y <= 0)
@@ -174,6 +184,7 @@ public class UnityPlayerControls : MonoBehaviour
                 _verticalSpeed = -maxFallSpeed;
             }
         }
+
         if (jump == 1 && numberOfJumps > 0 && canJump)
         {
             _verticalSpeed = jumpSpeed;
@@ -186,10 +197,17 @@ public class UnityPlayerControls : MonoBehaviour
             if (jump == 1 && rb.velocity.y > 0 && rb.gravityScale >= jumpApexThreshold)
             {
                 rb.gravityScale -= jumpApexThresholdStep * Time.deltaTime;
+                if (rb.gravityScale < jumpApexThreshold)
+                {
+                    rb.gravityScale = jumpApexThreshold;
+                }
             }
             else if (jump == 0)
             {
                 canJump = true;
+                rb.gravityScale = gravity;
+            } else
+            {
                 rb.gravityScale = gravity;
             }
         }
