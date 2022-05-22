@@ -189,7 +189,7 @@ public class UnityPlayerControls : MonoBehaviour
     void CalculateJump()
     {
         _verticalSpeed = float.NaN;
-        if (Physics2D.BoxCast(transform.position, new Vector2(GetComponent<BoxCollider2D>().size.x * 0.7f, groundCheckDistance), 0, Vector2.down, 0f, GroundMask)) //the horixontal size must be lowered from the actual size so that vertical walls wont be counted as being on the ground
+        if (Physics2D.BoxCast(transform.position, new Vector2(GetComponent<BoxCollider2D>().size.x * 0.8f, groundCheckDistance), 0, Vector2.down, 0f, GroundMask)) //the horixontal size must be lowered from the actual size so that vertical walls wont be counted as being on the ground
         {
             grounded = true;
             numberOfJumps = maxJumps;
