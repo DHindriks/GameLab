@@ -30,7 +30,7 @@ public class Button : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        Debug.Log("ENTER");
+        //Debug.Log("ENTER");
         if (other.tag == "Player")
         {
             CheckInput = true;

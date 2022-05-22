@@ -535,8 +535,12 @@ MonoBehaviour:
   CoinPrefab: {fileID: 2847614314068042132, guid: f96bf1b0e5e38534a9735aee124e0514, type: 3}
   spr1: {fileID: 21300000, guid: c64e95a77ffc0214e89663cf917fa7e4, type: 3}
   spr2: {fileID: 21300000, guid: 6f383a9249304ab43a167e77770aed25, type: 3}
-  speed: 1500
+  speed: 20
   deadzone: 0.1
+  doAccelerate: 1
+  accelerationRate: 50
+  doDecelerate: 1
+  decelerationRate: 250
   maxJumps: 1
   jumpSpeed: 40
   groundCheckDistance: 0.1
@@ -595,5 +599,5 @@ MonoBehaviour:
   Trails: []
   Texts:
   - {fileID: 1006289636}
-  Team: 1
+  Team: 6
   Teamcolor: {r: 0, g: 0, b: 0, a: 0}

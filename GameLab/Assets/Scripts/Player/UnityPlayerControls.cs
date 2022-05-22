@@ -71,21 +71,63 @@ public class UnityPlayerControls : MonoBehaviour
     }
 
     #region Movement
-    [Header("Movement")] 
+    [Header("Movement")]
     [SerializeField] private float speed;
-    [SerializeField] [Range(0, 1)] private float deadzone;
+    //[SerializeField] [Range(0, 1)] private float innerDeadzone; //This is stupid to handle it here
+    //[SerializeField] [Range(0, 1)] private float outerDeadzone;
+
+    [Header("Acceleration")]
+    [SerializeField] private bool doAccelerate = false;
+    [SerializeField] private float accelerationRate;
+    [SerializeField] private bool doDecelerate = false;
+    [SerializeField] private float decelerationRate;
+
     private float _horizontalSpeed;
 
-        void CalculateMovement()
+    void CalculateMovement()
+    {
+        if (move.x != 0)
         {
-            if (Mathf.Abs(move.x) >= deadzone)
+            if (doAccelerate)
             {
-                _horizontalSpeed = move.x * speed * Time.deltaTime;
-            } else
+                _horizontalSpeed += move.x * accelerationRate * Time.deltaTime;
+                if (Mathf.Abs(_horizontalSpeed) > speed)
+                {
+                    _horizontalSpeed = speed * Mathf.Sign(_horizontalSpeed);
+                }
+            }
+            else
+            {
+                _horizontalSpeed = move.x * speed;
+            }
+        }
+        else
+        {
+            if (doDecelerate)
+            {
+                if (_horizontalSpeed > 0)
+                {
+                    _horizontalSpeed -= decelerationRate * Time.deltaTime;
+                    if (_horizontalSpeed < 0)
+                    {
+                        _horizontalSpeed = 0;
+                    }
+                } 
+                else if (_horizontalSpeed < 0)
+                {
+                    _horizontalSpeed += decelerationRate * Time.deltaTime;
+                    if (_horizontalSpeed > 0)
+                    {
+                        _horizontalSpeed = 0;
+                    }
+                }
+            }
+            else
             {
                 _horizontalSpeed = 0;
             }
         }
+    }
     #endregion
 
     #region Jump
@@ -96,9 +138,12 @@ public class UnityPlayerControls : MonoBehaviour
     [SerializeField] private LayerMask GroundMask;
     [SerializeField] private float jumpApexThreshold = 0.25f;
     [SerializeField] private float jumpApexThresholdStep = 0.05f;
+
+    [Header("Gravity")]
     [SerializeField] private float gravity;
     [SerializeField] private float minFallSpeed = 40f;
     [SerializeField] private float maxFallSpeed = 120f;
+
     private int numberOfJumps;
     private float _verticalSpeed;
     private bool canJump = true;
