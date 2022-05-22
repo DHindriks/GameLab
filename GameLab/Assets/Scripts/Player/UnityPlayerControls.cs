@@ -72,40 +72,70 @@ public class UnityPlayerControls : MonoBehaviour
 
     #region Movement
     [Header("Movement")]
-    [SerializeField] private float speed;
+    [SerializeField] private float maxSpeed;
     //[SerializeField] [Range(0, 1)] private float innerDeadzone; //This is stupid to handle it here
     //[SerializeField] [Range(0, 1)] private float outerDeadzone;
 
     [Header("Acceleration")]
     [SerializeField] private bool doAccelerate = false;
-    [SerializeField] private float accelerationRate;
-    [SerializeField] private float aceelerationOffset;
-    [SerializeField] private bool doMinStartSpeed;
-    [SerializeField] private float minStartSpeed;
+    [SerializeField][Range(0, 1.5f)] private float accelerationRate;
+    [SerializeField][Range(0, 1)] private float accelerationOffset;
+    [SerializeField] private bool doMinSpeed;
+    [SerializeField] private float minSpeed;
     [SerializeField] private bool doDecelerate = false;
     [SerializeField] private float decelerationRate;
+    private float _modifier;
 
     private float _horizontalSpeed;
 
     void CalculateMovement()
     {
+        if (_horizontalSpeed == 0 || move.x == 0 || Mathf.Sign(_horizontalSpeed) != Mathf.Sign(move.x))
+        {
+            _modifier = accelerationOffset;
+        }
+
         if (move.x != 0)
         {
             if (doAccelerate)
             {
-                if (doMinStartSpeed && (Mathf.Abs(_horizontalSpeed) < minStartSpeed * Mathf.Abs(move.x) || Mathf.Sign(_horizontalSpeed) != Mathf.Sign(move.x)))
+                _modifier -= accelerationRate * Time.deltaTime;//Changing the acceleration modifier
+
+                if (_modifier < 0)
                 {
-                    _horizontalSpeed = minStartSpeed * move.x;
+                    _modifier = 0;
                 }
-                _horizontalSpeed += move.x * accelerationRate * Time.deltaTime;
-                if (Mathf.Abs(_horizontalSpeed) > speed)
+
+                #region Has minimum starting speed
+                if (doMinSpeed && (Mathf.Abs(_horizontalSpeed) < minSpeed + Mathf.Abs(move.x - (move.x * accelerationOffset)) || Mathf.Sign(_horizontalSpeed) != Mathf.Sign(move.x)))//Setting a minimum start speed if enabled
                 {
-                    _horizontalSpeed = speed * Mathf.Sign(_horizontalSpeed);
+                    _horizontalSpeed = minSpeed * Mathf.Sign(move.x) + (move.x - (move.x * accelerationOffset));
+                } else
+                {
+                    _horizontalSpeed = (move.x - (move.x * _modifier)) * maxSpeed; //Setting the speed
+                }
+                #endregion
+
+                #region There is no minimum starting speed
+                if (!doMinSpeed && Mathf.Sign(_horizontalSpeed) != Mathf.Sign(move.x)) //Resetting the speed when changing directions to prevent sliding
+                {
+                    _horizontalSpeed = 0;
+                }
+
+                if (!doMinSpeed)
+                {
+                    _horizontalSpeed = (move.x - (move.x * _modifier)) * maxSpeed; //Setting the speed
+                }
+                #endregion
+
+                if (Mathf.Abs(_horizontalSpeed) > maxSpeed)//Capping max speed
+                {
+                    _horizontalSpeed = maxSpeed * Mathf.Sign(_horizontalSpeed);
                 }
             }
             else
             {
-                _horizontalSpeed = move.x * speed;
+                _horizontalSpeed = move.x * maxSpeed;
             }
         }
         else
