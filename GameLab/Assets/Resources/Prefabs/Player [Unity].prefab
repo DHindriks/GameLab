@@ -595,5 +595,5 @@ MonoBehaviour:
   Trails: []
   Texts:
   - {fileID: 1006289636}
-  Team: 1
+  Team: 5
   Teamcolor: {r: 0, g: 0, b: 0, a: 0}

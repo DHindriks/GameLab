@@ -29,7 +29,7 @@ public class ActorTeam : MonoBehaviour
         switch (Team)
         {
             case Teams.None:
-                Teamcolor = Color.gray;
+                Teamcolor = Color.white;
                 break;
             case Teams.Red:
                 Teamcolor = Color.red;

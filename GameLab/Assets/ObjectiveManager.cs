@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -56,10 +56,12 @@ public class ObjectiveManager : MonoBehaviour
 
     void CalculateWinner()
     {
-        foreach (Team team in ParticipatingTeams)
-        {
 
-        }
+        Debug.Log(ParticipatingTeams);
+        ParticipatingTeams = ParticipatingTeams.OrderByDescending(team => team.CurrentCoins).ToList();
+
+        Debug.Log(ParticipatingTeams);
+
     }
 
     void AddpointsToTeam(GameObject DeliveringPlayer)
