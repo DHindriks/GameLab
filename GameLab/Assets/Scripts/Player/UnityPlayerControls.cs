@@ -11,6 +11,7 @@ public class UnityPlayerControls : MonoBehaviour
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction duckAction;
+    public InputAction useAction;
     Vector2 move;
     float jump;
 
@@ -32,6 +33,7 @@ public class UnityPlayerControls : MonoBehaviour
 
     void Awake()
     {
+        GameObject.DontDestroyOnLoad(gameObject);
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
         RespawnPoint = transform.position;
@@ -264,22 +266,23 @@ public class UnityPlayerControls : MonoBehaviour
         {
             if (playerInput.playerIndex == 1)
             {
-                GetComponent<SpriteRenderer>().sprite = spr1;
+                //GetComponent<SpriteRenderer>().sprite = spr1;
             }
             else if (playerInput.playerIndex == 2)
             {
-                GetComponent<SpriteRenderer>().sprite = spr2;
+                //GetComponent<SpriteRenderer>().sprite = spr2;
             }
         }
     #endregion
 
     #region Map the buttons
-        private void mapControls()
-        {
-            playerInput = GetComponent<PlayerInput>();
-            moveAction = playerInput.actions["Move"];
-            jumpAction = playerInput.actions["Jump"];
-            duckAction = playerInput.actions["Duck"];
-        }
+    private void mapControls()
+    {
+        playerInput = GetComponent<PlayerInput>();
+        moveAction = playerInput.actions["Move"];
+        jumpAction = playerInput.actions["Jump"];
+        duckAction = playerInput.actions["Duck"];
+        useAction = playerInput.actions["PowerUp"];
+    }
     #endregion
 }

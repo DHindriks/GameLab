@@ -8,7 +8,6 @@ public class LobbyTeamAssign : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Daddy");
         ActorTeam actor = collision.gameObject.GetComponent<ActorTeam>();
         actor.Team = team;
         actor.AssignTeam(team);
