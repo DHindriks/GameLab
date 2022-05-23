@@ -6,15 +6,15 @@ using TMPro;
 
 public class ActorTeam : MonoBehaviour
 {
-
     [SerializeField] Material OutlineBase;
     [SerializeField] List<SpriteRenderer> sprites;
     [SerializeField] List<TrailRenderer> Trails;
     [SerializeField] List<TextMeshProUGUI> Texts;
+    public string playerName;
     public Teams Team = Teams.None;
     [HideInInspector] public Color Teamcolor;
 
-    void Start()
+    public void Start()
     {
         foreach (SpriteRenderer SpriteR in sprites)
         {
@@ -48,6 +48,9 @@ public class ActorTeam : MonoBehaviour
                 break;
             case Teams.Green:
                 Teamcolor = Color.green;
+                break;
+            case Teams.Spectator:
+                Teamcolor = Color.white;
                 break;
         }
 
