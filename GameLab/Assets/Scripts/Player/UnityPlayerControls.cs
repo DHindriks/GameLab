@@ -11,6 +11,7 @@ public class UnityPlayerControls : MonoBehaviour
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction duckAction;
+    public InputAction useAction;
     Vector2 move;
     float jump;
 
@@ -32,6 +33,7 @@ public class UnityPlayerControls : MonoBehaviour
 
     void Awake()
     {
+        GameObject.DontDestroyOnLoad(gameObject);
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
         RespawnPoint = transform.position;
@@ -71,21 +73,100 @@ public class UnityPlayerControls : MonoBehaviour
     }
 
     #region Movement
-    [Header("Movement")] 
-    [SerializeField] private float speed;
-    [SerializeField] [Range(0, 1)] private float deadzone;
+    [Header("Movement")]
+    [SerializeField] private float maxSpeed;
+    //[SerializeField] [Range(0, 1)] private float innerDeadzone; //This is stupid to handle it here
+    //[SerializeField] [Range(0, 1)] private float outerDeadzone;
+
+    [Header("Acceleration")]
+    [SerializeField] private bool doAccelerate = false;
+    [SerializeField][Range(0, 1.5f)] private float accelerationRate;
+    [SerializeField][Range(0, 1)] private float accelerationOffset;
+    [SerializeField] private bool doMinSpeed;
+    [SerializeField] private float minSpeed;
+    [SerializeField] private bool doDecelerate = false;
+    [SerializeField] private float decelerationRate;
+    private float _modifier;
+
     private float _horizontalSpeed;
 
-        void CalculateMovement()
+    void CalculateMovement()
+    {
+        if (_horizontalSpeed == 0 || move.x == 0 || Mathf.Sign(_horizontalSpeed) != Mathf.Sign(move.x))
         {
-            if (Mathf.Abs(move.x) >= deadzone)
+            _modifier = accelerationOffset;
+        }
+
+        if (move.x != 0)
+        {
+            if (doAccelerate)
             {
-                _horizontalSpeed = move.x * speed * Time.deltaTime;
-            } else
+                _modifier -= accelerationRate * Time.deltaTime;//Changing the acceleration modifier
+
+                if (_modifier < 0)
+                {
+                    _modifier = 0;
+                }
+
+                #region Has minimum starting speed
+                if (doMinSpeed && (Mathf.Abs(_horizontalSpeed) < minSpeed + Mathf.Abs(move.x - (move.x * accelerationOffset)) || Mathf.Sign(_horizontalSpeed) != Mathf.Sign(move.x)))//Setting a minimum start speed if enabled
+                {
+                    _horizontalSpeed = minSpeed * Mathf.Sign(move.x) + (move.x - (move.x * accelerationOffset));
+                } else
+                {
+                    _horizontalSpeed = (move.x - (move.x * _modifier)) * maxSpeed; //Setting the speed
+                }
+                #endregion
+
+                #region There is no minimum starting speed
+                if (!doMinSpeed && Mathf.Sign(_horizontalSpeed) != Mathf.Sign(move.x)) //Resetting the speed when changing directions to prevent sliding
+                {
+                    _horizontalSpeed = 0;
+                }
+
+                if (!doMinSpeed)
+                {
+                    _horizontalSpeed = (move.x - (move.x * _modifier)) * maxSpeed; //Setting the speed
+                }
+                #endregion
+
+                if (Mathf.Abs(_horizontalSpeed) > maxSpeed)//Capping max speed
+                {
+                    _horizontalSpeed = maxSpeed * Mathf.Sign(_horizontalSpeed);
+                }
+            }
+            else
+            {
+                _horizontalSpeed = move.x * maxSpeed;
+            }
+        }
+        else
+        {
+            if (doDecelerate)
+            {
+                if (_horizontalSpeed > 0)
+                {
+                    _horizontalSpeed -= decelerationRate * Time.deltaTime;
+                    if (_horizontalSpeed < 0)
+                    {
+                        _horizontalSpeed = 0;
+                    }
+                } 
+                else if (_horizontalSpeed < 0)
+                {
+                    _horizontalSpeed += decelerationRate * Time.deltaTime;
+                    if (_horizontalSpeed > 0)
+                    {
+                        _horizontalSpeed = 0;
+                    }
+                }
+            }
+            else
             {
                 _horizontalSpeed = 0;
             }
         }
+    }
     #endregion
 
     #region Jump
@@ -96,9 +177,12 @@ public class UnityPlayerControls : MonoBehaviour
     [SerializeField] private LayerMask GroundMask;
     [SerializeField] private float jumpApexThreshold = 0.25f;
     [SerializeField] private float jumpApexThresholdStep = 0.05f;
+
+    [Header("Gravity")]
     [SerializeField] private float gravity;
     [SerializeField] private float minFallSpeed = 40f;
     [SerializeField] private float maxFallSpeed = 120f;
+
     private int numberOfJumps;
     private float _verticalSpeed;
     private bool canJump = true;
@@ -107,15 +191,18 @@ public class UnityPlayerControls : MonoBehaviour
     void CalculateJump()
     {
         _verticalSpeed = float.NaN;
-        if (Physics2D.BoxCast(transform.position, new Vector2(GetComponent<BoxCollider2D>().size.x, groundCheckDistance), 0, Vector2.down, 0f, GroundMask))
+        if (Physics2D.BoxCast(transform.position, new Vector2(GetComponent<BoxCollider2D>().size.x * 0.8f, groundCheckDistance), 0, Vector2.down, 0f, GroundMask)) //the horixontal size must be lowered from the actual size so that vertical walls wont be counted as being on the ground
         {
             grounded = true;
             numberOfJumps = maxJumps;
         }
         else
         {
+            if (grounded && jump == 0)
+            {
+                numberOfJumps--;
+            }
             grounded = false;
-            numberOfJumps--;
         }
         //Keep the falling speed of the player within the boundaries
         if (rb.velocity.y <= 0)
@@ -129,6 +216,7 @@ public class UnityPlayerControls : MonoBehaviour
                 _verticalSpeed = -maxFallSpeed;
             }
         }
+
         if (jump == 1 && numberOfJumps > 0 && canJump)
         {
             _verticalSpeed = jumpSpeed;
@@ -141,10 +229,17 @@ public class UnityPlayerControls : MonoBehaviour
             if (jump == 1 && rb.velocity.y > 0 && rb.gravityScale >= jumpApexThreshold)
             {
                 rb.gravityScale -= jumpApexThresholdStep * Time.deltaTime;
+                if (rb.gravityScale < jumpApexThreshold)
+                {
+                    rb.gravityScale = jumpApexThreshold;
+                }
             }
             else if (jump == 0)
             {
                 canJump = true;
+                rb.gravityScale = gravity;
+            } else
+            {
                 rb.gravityScale = gravity;
             }
         }
@@ -171,22 +266,23 @@ public class UnityPlayerControls : MonoBehaviour
         {
             if (playerInput.playerIndex == 1)
             {
-                GetComponent<SpriteRenderer>().sprite = spr1;
+                //GetComponent<SpriteRenderer>().sprite = spr1;
             }
             else if (playerInput.playerIndex == 2)
             {
-                GetComponent<SpriteRenderer>().sprite = spr2;
+                //GetComponent<SpriteRenderer>().sprite = spr2;
             }
         }
     #endregion
 
     #region Map the buttons
-        private void mapControls()
-        {
-            playerInput = GetComponent<PlayerInput>();
-            moveAction = playerInput.actions["Move"];
-            jumpAction = playerInput.actions["Jump"];
-            duckAction = playerInput.actions["Duck"];
-        }
+    private void mapControls()
+    {
+        playerInput = GetComponent<PlayerInput>();
+        moveAction = playerInput.actions["Move"];
+        jumpAction = playerInput.actions["Jump"];
+        duckAction = playerInput.actions["Duck"];
+        useAction = playerInput.actions["PowerUp"];
+    }
     #endregion
 }

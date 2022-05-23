@@ -131,5 +131,6 @@ public enum Teams
     Yellow,
     Orange,
     Purple,
-    Green
+    Green,
+    Spectator
 }

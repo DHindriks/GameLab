@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: 0284e19058a9a3046a7fd528ca270dab
+  - enabled: 1
+    path: Assets/Scenes/[traps]AidanLevel.unity
+    guid: 485ff6a3b340d76418894ecab1ec388e
+  - enabled: 1
     path: Assets/Scenes/TeacherTestMulti.unity
     guid: eceb851d828da3b4599f40cbadda335d
   - enabled: 0

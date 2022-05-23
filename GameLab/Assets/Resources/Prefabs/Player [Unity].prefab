@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &900842364
 Transform:
   m_ObjectHideFlags: 0
@@ -458,7 +458,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.0253906, y: 1.34375}
+    oldSize: {x: 1.1171875, y: 1.4648438}
     newSize: {x: 1.0253906, y: 1.34375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -507,7 +507,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6f383a9249304ab43a167e77770aed25, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ec0ca269ec0b4f4fa12877c83d9dd88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -535,17 +535,23 @@ MonoBehaviour:
   CoinPrefab: {fileID: 2847614314068042132, guid: f96bf1b0e5e38534a9735aee124e0514, type: 3}
   spr1: {fileID: 21300000, guid: c64e95a77ffc0214e89663cf917fa7e4, type: 3}
   spr2: {fileID: 21300000, guid: 6f383a9249304ab43a167e77770aed25, type: 3}
-  speed: 1500
-  deadzone: 0.1
+  maxSpeed: 18
+  doAccelerate: 0
+  accelerationRate: 1
+  accelerationOffset: 0.2
+  doMinSpeed: 0
+  minSpeed: 5
+  doDecelerate: 0
+  decelerationRate: 250
   maxJumps: 1
-  jumpSpeed: 40
+  jumpSpeed: 35
   groundCheckDistance: 0.1
   GroundMask:
     serializedVersion: 2
     m_Bits: 128
-  jumpApexThreshold: 5
-  jumpApexThresholdStep: 60
-  gravity: 15
+  jumpApexThreshold: 8
+  jumpApexThresholdStep: 200
+  gravity: 20
   minFallSpeed: 10
   maxFallSpeed: 30
 --- !u!114 &1385834148
@@ -573,7 +579,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Game
   m_SplitScreenIndex: -1
@@ -591,9 +597,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutlineBase: {fileID: 2100000, guid: 386388ac32994c749baa0196d5f527e1, type: 2}
-  sprites: []
+  sprites:
+  - {fileID: 1111991345312448568}
   Trails: []
   Texts:
   - {fileID: 1006289636}
-  Team: 5
+  playerName: 
+  Team: 6
   Teamcolor: {r: 0, g: 0, b: 0, a: 0}
