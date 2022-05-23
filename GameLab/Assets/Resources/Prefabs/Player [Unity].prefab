@@ -530,6 +530,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d07483906fb9124e918b573180a6262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useAction:
+    m_Name: Use
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 727d1d6d-b38f-4799-af16-2973f15764e3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   Coins: 0
   CoinCounter: {fileID: 1006289636}
   CoinPrefab: {fileID: 2847614314068042132, guid: f96bf1b0e5e38534a9735aee124e0514, type: 3}
@@ -603,5 +612,5 @@ MonoBehaviour:
   Texts:
   - {fileID: 1006289636}
   playerName: 
-  Team: 6
+  Team: 2
   Teamcolor: {r: 0, g: 0, b: 0, a: 0}

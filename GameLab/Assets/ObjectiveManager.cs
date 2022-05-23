@@ -14,10 +14,20 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] float TimeLeft;
     [SerializeField] bool Timerunning;
 
+    //UI
     [SerializeField] Transform ScoreBoardL;
     [SerializeField] Transform ScoreBoardR;
 
     [SerializeField] TextMeshProUGUI Timer;
+
+    //UI - End screen
+    [SerializeField] GameEndscreen EndScreen;
+    [SerializeField] GameObject EndscreenPlacementUIPrefab;
+    [SerializeField] Transform EndscreenPlacementUI;
+    [SerializeField] Color Firstcolor;
+    [SerializeField] Color Secondcolor;
+    [SerializeField] Color Thirdcolor;
+    [SerializeField] Color Restcolor;
 
     void Update()
     {
@@ -56,11 +66,24 @@ public class ObjectiveManager : MonoBehaviour
 
     void CalculateWinner()
     {
-
-        Debug.Log(ParticipatingTeams);
+        EndScreen.gameObject.SetActive(true);
         ParticipatingTeams = ParticipatingTeams.OrderByDescending(team => team.CurrentCoins).ToList();
+        int currentCheckedScore = 0;
+        int currentPlacement = 0;
+        for (int i = 0; i < ParticipatingTeams.Count; i++)
+        {
+            if (currentCheckedScore != ParticipatingTeams[i].CurrentCoins)
+            {
+                currentPlacement++;
+                currentCheckedScore = ParticipatingTeams[i].CurrentCoins;
+            }
+            GameObject NewPlacement = Instantiate(EndscreenPlacementUIPrefab.gameObject, EndscreenPlacementUI);
+            EndscreenPlacementUI currrentPlacementUI = NewPlacement.GetComponent<EndscreenPlacementUI>();
 
-        Debug.Log(ParticipatingTeams);
+            currrentPlacementUI.PlacementNumber.text = "#" + currentPlacement.ToString();
+            currrentPlacementUI.TeamName.text = ParticipatingTeams[i].ParticipatingTeam.ToString();
+
+        }
 
     }
 
