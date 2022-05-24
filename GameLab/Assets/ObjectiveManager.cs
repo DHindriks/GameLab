@@ -83,6 +83,22 @@ public class ObjectiveManager : MonoBehaviour
             currrentPlacementUI.PlacementNumber.text = "#" + currentPlacement.ToString();
             currrentPlacementUI.TeamName.text = ParticipatingTeams[i].ParticipatingTeam.ToString();
 
+
+            switch(currentPlacement)
+            {
+                case 1:
+                    currrentPlacementUI.PlacementColor.color = Firstcolor;
+                    break;
+                case 2:
+                    currrentPlacementUI.PlacementColor.color = Secondcolor;
+                    break;
+                case 3:
+                    currrentPlacementUI.PlacementColor.color = Thirdcolor;
+                    break;
+                default:
+                    currrentPlacementUI.PlacementColor.color = Restcolor;
+                    break;
+            }
         }
 
     }
