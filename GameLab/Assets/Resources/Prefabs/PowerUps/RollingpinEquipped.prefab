@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityPrefab: {fileID: 2928658145072171602, guid: 7687dbb13aa32f04894bd931f92c52af, type: 3}
+  throwingSpeed: 50
 --- !u!1 &827089830661610476
 GameObject:
   m_ObjectHideFlags: 0

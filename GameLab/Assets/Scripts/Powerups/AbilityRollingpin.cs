@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class AbilityRollingpin : AbilityBase
 {
     [SerializeField] GameObject AbilityPrefab;
+    [SerializeField] float throwingSpeed;
     InputAction Activate;
 
     void Start()
@@ -25,6 +26,8 @@ public class AbilityRollingpin : AbilityBase
             {
                 obj.GetComponent<ActorTeam>().AssignTeam(GetComponentInParent<ActorTeam>().Team);
             }
+
+            obj.GetComponent<Rigidbody2D>().velocity = new Vector3(Mathf.Sign(transform.parent.transform.lossyScale.x) * throwingSpeed, 0); //Adds speed to the throwable according to the players orientation
             Destroy(gameObject);
         }
     }

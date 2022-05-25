@@ -41,6 +41,11 @@ public class UnityPlayerControls : MonoBehaviour
         assignSprites();
     }
 
+    private void Update()
+    {
+        ChangeOrientation();
+    }
+
     private void FixedUpdate()
     {
         GatherInput();
@@ -285,4 +290,15 @@ public class UnityPlayerControls : MonoBehaviour
         useAction = playerInput.actions["PowerUp"];
     }
     #endregion
+    void ChangeOrientation()
+    {
+        if (move.x > 0)
+        {
+            transform.localScale = new Vector3(1,1,1);
+        }
+        else if (move.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
 }
