@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2928658145072171612}
   - component: {fileID: 2928658145072171613}
   - component: {fileID: 266262969}
+  - component: {fileID: 5861000783942976243}
   m_Layer: 6
   m_Name: RollingPinProjectile
   m_TagString: Untagged
@@ -140,7 +141,10 @@ MonoBehaviour:
   - {fileID: 2928658145072171614}
   Trails:
   - {fileID: 266262969}
+  Texts: []
+  playerName: 
   Team: 2
+  Teamcolor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!96 &266262969
 TrailRenderer:
   serializedVersion: 2
@@ -248,3 +252,15 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &5861000783942976243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2928658145072171602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e63f1c7e0c8a04b4f93f77ad24060790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
