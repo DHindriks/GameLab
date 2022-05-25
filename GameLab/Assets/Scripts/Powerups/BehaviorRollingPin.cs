@@ -15,14 +15,29 @@ public class BehaviorRollingPin : MonoBehaviour
     private void Update()
     {
         counter += Time.deltaTime;
-        //Debug.Log(counter + " : " + timeFrame);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (counter > timeFrame && collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<UnityPlayerControls>().KillPlayer();
+            GameObject player = collision.gameObject;
+            bool used = false;
+            foreach (Transform child in player.transform)
+            {
+                AbilityGhostPepper comp = child.GetComponent<AbilityGhostPepper>();
+                if (comp && comp.used)
+                {
+                    Destroy(child.gameObject);
+                    Destroy(gameObject);
+                    used = true;
+                    return;
+                }
+            }
+            if (!used)
+            {
+                collision.gameObject.GetComponent<UnityPlayerControls>().KillPlayer();
+            }
         }
     }
 }
