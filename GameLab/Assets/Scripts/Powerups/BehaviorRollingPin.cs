@@ -15,7 +15,7 @@ public class BehaviorRollingPin : MonoBehaviour
     private void Update()
     {
         counter += Time.deltaTime;
-        Debug.Log(counter + " : " + timeFrame);
+        //Debug.Log(counter + " : " + timeFrame);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
