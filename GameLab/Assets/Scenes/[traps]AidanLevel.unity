@@ -227,7 +227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &205084354
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1253,6 +1253,10 @@ PrefabInstance:
     - target: {fileID: 3961626557617829695, guid: 38d1ec437a637ad48b19f897f9d94438, type: 3}
       propertyPath: speed
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961626557617829695, guid: 38d1ec437a637ad48b19f897f9d94438, type: 3}
+      propertyPath: useAction.m_Id
+      value: 9934a4a7-ae69-40af-b542-c19afe9c3350
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38d1ec437a637ad48b19f897f9d94438, type: 3}
@@ -3323,6 +3327,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sprite-potato
       objectReference: {fileID: 0}
+    - target: {fileID: 5313340120271400464, guid: 4bac602ead29c634e9294770b17d0db7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6900570981825344652, guid: 4bac602ead29c634e9294770b17d0db7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.7518343
@@ -4069,6 +4077,10 @@ PrefabInstance:
     - target: {fileID: 2928658145072171602, guid: 7687dbb13aa32f04894bd931f92c52af, type: 3}
       propertyPath: m_Name
       value: RollingProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2928658145072171602, guid: 7687dbb13aa32f04894bd931f92c52af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2928658145072171609, guid: 7687dbb13aa32f04894bd931f92c52af, type: 3}
       propertyPath: m_RootOrder
