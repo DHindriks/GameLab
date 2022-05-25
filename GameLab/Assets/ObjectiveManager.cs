@@ -61,6 +61,7 @@ public class ObjectiveManager : MonoBehaviour
     {
         Timerunning = false;
         TimeLeft = 0;
+        Destroy(GetComponent<BoxCollider2D>());
         CalculateWinner();
     }
 

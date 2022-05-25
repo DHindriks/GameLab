@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.80241597, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.06112989, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlacementNumber: {fileID: 4158298383514393885}
-  PlacementColor: {fileID: 7503514369131055973}
+  PlacementColor: {fileID: 4158298384906194799}
   TeamName: {fileID: 4158298383997915504}
   TeamColor: {fileID: 4158298383205881832}
 --- !u!1 &7503514369131055975

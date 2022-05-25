@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useAction:
-    m_Name: 
+    m_Name: Use
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: b7302ea1-cb4e-4ec1-a785-d748bee43786
@@ -612,5 +612,5 @@ MonoBehaviour:
   Texts:
   - {fileID: 1006289636}
   playerName: 
-  Team: 2
+  Team: 4
   Teamcolor: {r: 0, g: 0, b: 0, a: 0}
