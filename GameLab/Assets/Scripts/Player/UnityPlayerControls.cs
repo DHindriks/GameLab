@@ -36,7 +36,7 @@ public class UnityPlayerControls : MonoBehaviour
         GameObject.DontDestroyOnLoad(gameObject);
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
-        RespawnPoint = transform.position;
+        RespawnPoint = new Vector2(0, 2);
         mapControls();
         assignSprites();
     }
