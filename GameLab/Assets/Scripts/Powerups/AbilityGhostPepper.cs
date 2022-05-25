@@ -7,8 +7,17 @@ public class AbilityGhostPepper : MonoBehaviour
 {
     [SerializeField] private float duration;
     private bool pickedUp = false;
-    private bool used = false;
+    [HideInInspector] public bool used = false;
     InputAction Activate;
+
+    SpriteRenderer sprRender;
+    BoxCollider2D boxCollider;
+
+    private void Start()
+    {
+        sprRender = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -16,8 +25,8 @@ public class AbilityGhostPepper : MonoBehaviour
         if (pickedUp && Activate.IsPressed())
         {
             used = true;
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            GetComponent<SpriteRenderer>().enabled = false;
+            boxCollider.enabled = true;
+            sprRender.enabled = false;
         }
     }
 
@@ -31,20 +40,6 @@ public class AbilityGhostPepper : MonoBehaviour
 
             Activate = GetComponentInParent<PlayerInput>().actions["PowerUp"]; //Get the activate button
             pickedUp = true;
-
-            BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D>();//Set the collider slightly bigger than the player
-            collider.offset = GetComponentInParent<BoxCollider2D>().offset;
-            collider.size = new Vector2(GetComponentInParent<BoxCollider2D>().size.x, GetComponentInParent<BoxCollider2D>().size.y);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (used && collision.gameObject.tag == "Rolling Pin")
-        {
-            Debug.Log("sghdv");
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
         }
     }
 }
