@@ -7,26 +7,16 @@ public class AbilityGhostPepper : MonoBehaviour
 {
     [SerializeField] private float duration;
     private bool pickedUp = false;
-    [HideInInspector] public bool used = false;
     InputAction Activate;
-
-    SpriteRenderer sprRender;
-    BoxCollider2D boxCollider;
-
-    private void Start()
-    {
-        sprRender = GetComponent<SpriteRenderer>();
-        boxCollider = GetComponent<BoxCollider2D>();
-    }
+    UnityPlayerControls upc;
 
     // Update is called once per frame
     void Update()
     {
         if (pickedUp && Activate.IsPressed())
         {
-            used = true;
-            boxCollider.enabled = true;
-            sprRender.enabled = false;
+            upc.isShielded = true;
+            Destroy(gameObject);
         }
     }
 
@@ -40,6 +30,8 @@ public class AbilityGhostPepper : MonoBehaviour
 
             Activate = GetComponentInParent<PlayerInput>().actions["PowerUp"]; //Get the activate button
             pickedUp = true;
+
+            upc = transform.parent.GetComponent<UnityPlayerControls>();
         }
     }
 }

@@ -23,10 +23,41 @@ public class SpikeTrap : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
-        {   
-            //TODO: player should have Kill() function.
-            collision.GetComponent<UnityPlayerControls>().KillPlayer();
+        GameObject player = collision.gameObject;
+        UnityPlayerControls upc = player.GetComponent<UnityPlayerControls>();
+
+        if (upc.isInvincilbe)
+        {
+            return;
+        }
+        else if (upc.isShielded)
+        {
+            upc.isShielded = false;
+            upc.isInvincilbe = true;
+        }
+        else if (!upc.isShielded)
+        {
+            collision.gameObject.GetComponent<UnityPlayerControls>().KillPlayer();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        GameObject player = collision.gameObject;
+        UnityPlayerControls upc = player.GetComponent<UnityPlayerControls>();
+
+        if (upc.isInvincilbe)
+        {
+            return;
+        }
+        else if (upc.isShielded)
+        {
+            upc.isShielded = false;
+            upc.isInvincilbe = true;
+        }
+        else if (!upc.isShielded)
+        {
+            collision.gameObject.GetComponent<UnityPlayerControls>().KillPlayer();
         }
     }
 }

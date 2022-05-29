@@ -22,19 +22,43 @@ public class BehaviorRollingPin : MonoBehaviour
         if (counter > timeFrame && collision.gameObject.tag == "Player")
         {
             GameObject player = collision.gameObject;
-            bool used = false;
-            foreach (Transform child in player.transform)
+            UnityPlayerControls upc = player.GetComponent<UnityPlayerControls>();
+            
+            if (upc.isInvincilbe)
             {
-                AbilityGhostPepper comp = child.GetComponent<AbilityGhostPepper>();
-                if (comp && comp.used)
-                {
-                    Destroy(child.gameObject);
-                    Destroy(gameObject);
-                    used = true;
-                    return;
-                }
+                return;
             }
-            if (!used)
+            else if (upc.isShielded)
+            {
+                upc.isShielded = false;
+                upc.isInvincilbe = true;
+                Destroy(gameObject);
+            }
+            else if (!upc.isShielded)
+            {
+                collision.gameObject.GetComponent<UnityPlayerControls>().KillPlayer();
+            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (counter > timeFrame && collision.gameObject.tag == "Player")
+        {
+            GameObject player = collision.gameObject;
+            UnityPlayerControls upc = player.GetComponent<UnityPlayerControls>();
+
+            if (upc.isInvincilbe)
+            {
+                return;
+            }
+            else if (upc.isShielded)
+            {
+                upc.isShielded = false;
+                upc.isInvincilbe = true;
+                Destroy(gameObject);
+            }
+            else if (!upc.isShielded)
             {
                 collision.gameObject.GetComponent<UnityPlayerControls>().KillPlayer();
             }

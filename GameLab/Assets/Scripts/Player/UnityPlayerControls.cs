@@ -25,6 +25,10 @@ public class UnityPlayerControls : MonoBehaviour
     private int RespawnTimer;
     Vector2 RespawnPoint;
     [SerializeField] GameObject CoinPrefab;
+    public bool isShielded = false;
+    public bool isInvincilbe = false;
+    [SerializeField][Range(0, 10)] float afterHitInvincibilityTime;
+    float invincibilityTimer;
 
 
     //TempBullshit for testing
@@ -37,6 +41,8 @@ public class UnityPlayerControls : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
         RespawnPoint = new Vector2(0, 2);
+        invincibilityTimer = afterHitInvincibilityTime;
+
         mapControls();
         assignSprites();
     }
@@ -44,6 +50,7 @@ public class UnityPlayerControls : MonoBehaviour
     private void Update()
     {
         ChangeOrientation();
+        AfterHitInvincibility();
     }
 
     private void FixedUpdate()
@@ -58,17 +65,6 @@ public class UnityPlayerControls : MonoBehaviour
     {
         Coins += amount;
         CoinCounter.text = Coins.ToString();
-    }
-
-    public void KillPlayer()
-    {
-        //for(int i = 0; i < Coins; i++)
-        //{
-        //    GameObject Coin = Instantiate(CoinPrefab);
-        //}
-
-        transform.position = RespawnPoint;
-        Coins = 0;
     }
 
     void GatherInput()
@@ -299,6 +295,31 @@ public class UnityPlayerControls : MonoBehaviour
         else if (move.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
+    public void KillPlayer()
+    {
+        //for(int i = 0; i < Coins; i++)
+        //{
+        //    GameObject Coin = Instantiate(CoinPrefab);
+        //}
+
+        transform.position = RespawnPoint;
+        Coins = 0;
+    }
+
+    private void AfterHitInvincibility()
+    {
+        if (isInvincilbe)
+        {
+            invincibilityTimer -= Time.deltaTime;
+        }
+
+        if (invincibilityTimer <= 0)
+        {
+            isInvincilbe = false;
+            invincibilityTimer = afterHitInvincibilityTime;
         }
     }
 }
