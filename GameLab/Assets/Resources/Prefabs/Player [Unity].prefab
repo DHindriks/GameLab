@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 900842367}
   - component: {fileID: 900842366}
   - component: {fileID: 900842365}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1876395293}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PowerUpHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 3961626557617829695}
   - component: {fileID: 1385834148}
   - component: {fileID: 647013572}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player [Unity]
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -544,6 +544,8 @@ MonoBehaviour:
   CoinPrefab: {fileID: 2847614314068042132, guid: f96bf1b0e5e38534a9735aee124e0514, type: 3}
   isShielded: 0
   isInvincilbe: 0
+  isHoneyed: 0
+  honeyedTimer: 0
   afterHitInvincibilityTime: 2
   spr1: {fileID: 21300000, guid: c64e95a77ffc0214e89663cf917fa7e4, type: 3}
   spr2: {fileID: 21300000, guid: 6f383a9249304ab43a167e77770aed25, type: 3}

@@ -21,7 +21,7 @@ public class AbilityRollingpin : AbilityBase
         {
             GameObject obj = Instantiate(AbilityPrefab);
             obj.transform.position = transform.GetChild(0).position;
-            obj.GetComponent<Rigidbody2D>().AddForce(transform.forward * 1000);
+            //obj.GetComponent<Rigidbody2D>().AddForce(transform.forward * 1000);
             if (obj.GetComponent<ActorTeam>())
             {
                 obj.GetComponent<ActorTeam>().AssignTeam(GetComponentInParent<ActorTeam>().Team);

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8480048276225469152}
   - component: {fileID: 8002143245308313438}
   - component: {fileID: 2698792779347880071}
+  - component: {fileID: 1251592064108398513}
   m_Layer: 0
   m_Name: Honey Jar
   m_TagString: Untagged
@@ -109,3 +110,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2902689, y: 1.9977021}
   m_EdgeRadius: 0
+--- !u!114 &1251592064108398513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9077438300927165649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8836432245931499ee1c6302f24cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityPrefab: {fileID: 9077438300927165649, guid: bd50604d2afbbae4d8e62463d4975c1f, type: 3}
+  throwingSpeed: 50

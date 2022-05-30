@@ -27,6 +27,8 @@ public class UnityPlayerControls : MonoBehaviour
     [SerializeField] GameObject CoinPrefab;
     public bool isShielded = false;
     public bool isInvincilbe = false;
+    public bool isHoneyed = false;
+    public float honeyedTimer;
     [SerializeField][Range(0, 10)] float afterHitInvincibilityTime;
     float invincibilityTimer;
 
@@ -51,6 +53,7 @@ public class UnityPlayerControls : MonoBehaviour
     {
         ChangeOrientation();
         AfterHitInvincibility();
+        decayHoney();
     }
 
     private void FixedUpdate()
@@ -71,6 +74,11 @@ public class UnityPlayerControls : MonoBehaviour
     {
         move = moveAction.ReadValue<Vector2>();
         jump = jumpAction.ReadValue<float>();
+
+        if (isHoneyed)
+        {
+            move.x = 0;
+        }
     }
 
     #region Movement
@@ -320,6 +328,18 @@ public class UnityPlayerControls : MonoBehaviour
         {
             isInvincilbe = false;
             invincibilityTimer = afterHitInvincibilityTime;
+        }
+    }
+
+    private void decayHoney()
+    {
+        if (isHoneyed)
+        {
+            honeyedTimer -= Time.deltaTime;
+        }
+        if (honeyedTimer <= 0)
+        {
+            isHoneyed = false;
         }
     }
 }
