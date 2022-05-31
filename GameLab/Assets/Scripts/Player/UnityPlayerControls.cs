@@ -25,6 +25,12 @@ public class UnityPlayerControls : MonoBehaviour
     private int RespawnTimer;
     Vector2 RespawnPoint;
     [SerializeField] GameObject CoinPrefab;
+    public bool isShielded = false;
+    public bool isInvincilbe = false;
+    public bool isHoneyed = false;
+    public float honeyedTimer;
+    [SerializeField][Range(0, 10)] float afterHitInvincibilityTime;
+    float invincibilityTimer;
 
 
     //TempBullshit for testing
@@ -36,9 +42,18 @@ public class UnityPlayerControls : MonoBehaviour
         GameObject.DontDestroyOnLoad(gameObject);
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
-        RespawnPoint = transform.position;
+        RespawnPoint = new Vector2(0, 2);
+        invincibilityTimer = afterHitInvincibilityTime;
+
         mapControls();
         assignSprites();
+    }
+
+    private void Update()
+    {
+        ChangeOrientation();
+        AfterHitInvincibility();
+        decayHoney();
     }
 
     private void FixedUpdate()
@@ -55,21 +70,15 @@ public class UnityPlayerControls : MonoBehaviour
         CoinCounter.text = Coins.ToString();
     }
 
-    public void KillPlayer()
-    {
-        //for(int i = 0; i < Coins; i++)
-        //{
-        //    GameObject Coin = Instantiate(CoinPrefab);
-        //}
-
-        transform.position = RespawnPoint;
-        Coins = 0;
-    }
-
     void GatherInput()
     {
         move = moveAction.ReadValue<Vector2>();
         jump = jumpAction.ReadValue<float>();
+
+        if (isHoneyed)
+        {
+            move.x = 0;
+        }
     }
 
     #region Movement
@@ -285,4 +294,52 @@ public class UnityPlayerControls : MonoBehaviour
         useAction = playerInput.actions["PowerUp"];
     }
     #endregion
+    void ChangeOrientation()
+    {
+        if (move.x > 0)
+        {
+            transform.localScale = new Vector3(1,1,1);
+        }
+        else if (move.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
+    public void KillPlayer()
+    {
+        //for(int i = 0; i < Coins; i++)
+        //{
+        //    GameObject Coin = Instantiate(CoinPrefab);
+        //}
+
+        transform.position = RespawnPoint;
+        Coins = 0;
+    }
+
+    private void AfterHitInvincibility()
+    {
+        if (isInvincilbe)
+        {
+            invincibilityTimer -= Time.deltaTime;
+        }
+
+        if (invincibilityTimer <= 0)
+        {
+            isInvincilbe = false;
+            invincibilityTimer = afterHitInvincibilityTime;
+        }
+    }
+
+    private void decayHoney()
+    {
+        if (isHoneyed)
+        {
+            honeyedTimer -= Time.deltaTime;
+        }
+        if (honeyedTimer <= 0)
+        {
+            isHoneyed = false;
+        }
+    }
 }

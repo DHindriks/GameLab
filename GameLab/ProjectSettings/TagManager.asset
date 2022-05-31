@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Rolling Pin
   layers:
   - Default
   - TransparentFX
@@ -14,6 +15,7 @@ TagManager:
   - Player
   - Platform
   - Pickup
+  - PowerUp
   - 
   - 
   - 
@@ -24,12 +26,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - None
+  - Red
+  - Green
+  - Blue
+  - Yellow
   - 
   - 
   - 

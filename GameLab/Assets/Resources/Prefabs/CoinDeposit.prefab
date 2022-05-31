@@ -286,7 +286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Color> Won!
+  m_text: Game Ended!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -948,7 +948,7 @@ MonoBehaviour:
   EndScreen: {fileID: 92980578}
   EndscreenPlacementUIPrefab: {fileID: 4158298384906194797, guid: ac1f5b06df6482746ae6876c92a4809c, type: 3}
   EndscreenPlacementUI: {fileID: 509497828}
-  Firstcolor: {r: 1, g: 0.5727849, b: 0, a: 0}
-  Secondcolor: {r: 0.6568174, g: 0.6697185, b: 0.6792453, a: 0}
-  Thirdcolor: {r: 0.5943396, g: 0.2618603, b: 0, a: 0}
-  Restcolor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
+  Firstcolor: {r: 1, g: 0.5727849, b: 0, a: 1}
+  Secondcolor: {r: 0.6568174, g: 0.6697185, b: 0.6792453, a: 1}
+  Thirdcolor: {r: 0.5943396, g: 0.2618603, b: 0, a: 1}
+  Restcolor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
