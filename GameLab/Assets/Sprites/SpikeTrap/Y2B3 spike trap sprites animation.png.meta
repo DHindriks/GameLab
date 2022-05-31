@@ -1,7 +1,52 @@
 fileFormatVersion: 2
 guid: fd136401a231fed4383a59f6abb07359
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2781982161201140188
+    second: Y2B3 spike trap sprites animation_0
+  - first:
+      213: -5324834778057959046
+    second: Y2B3 spike trap sprites animation_1
+  - first:
+      213: -6177414580798743637
+    second: Y2B3 spike trap sprites animation_2
+  - first:
+      213: -8385693078283041311
+    second: Y2B3 spike trap sprites animation_3
+  - first:
+      213: 6481992947606803129
+    second: Y2B3 spike trap sprites animation_4
+  - first:
+      213: 1838854271820440624
+    second: Y2B3 spike trap sprites animation_5
+  - first:
+      213: 8518904358821056566
+    second: Y2B3 spike trap sprites animation_6
+  - first:
+      213: -122160841873087372
+    second: Y2B3 spike trap sprites animation_7
+  - first:
+      213: -4484733601869001928
+    second: Y2B3 spike trap sprites animation_8
+  - first:
+      213: 8348766215617996326
+    second: Y2B3 spike trap sprites animation_9
+  - first:
+      213: -5654298425899855107
+    second: Y2B3 spike trap sprites animation_10
+  - first:
+      213: -1281417394249396104
+    second: Y2B3 spike trap sprites animation_11
+  - first:
+      213: 8558788421766374153
+    second: Y2B3 spike trap sprites animation_12
+  - first:
+      213: -7633591032483844365
+    second: Y2B3 spike trap sprites animation_13
+  - first:
+      213: -4801373476796051235
+    second: Y2B3 spike trap sprites animation_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +86,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +120,348 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1958
+        width: 1412
+        height: 382
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd11ed939069b9620800000000000000
+      internalID: 2781982161201140188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_1
+      rect:
+        serializedVersion: 2
+        x: 2055
+        y: 1962
+        width: 1413
+        height: 378
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7995364bf26a16b0800000000000000
+      internalID: -5324834778057959046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_2
+      rect:
+        serializedVersion: 2
+        x: 4119
+        y: 1958
+        width: 1410
+        height: 382
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bab1c290b2a654aa0800000000000000
+      internalID: -6177414580798743637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_3
+      rect:
+        serializedVersion: 2
+        x: 6189
+        y: 1937
+        width: 1413
+        height: 358
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e5cc79139800ab80800000000000000
+      internalID: -8385693078283041311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_4
+      rect:
+        serializedVersion: 2
+        x: 8249
+        y: 1923
+        width: 1408
+        height: 417
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b2d0b62e3aa4f950800000000000000
+      internalID: 6481992947606803129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1017
+        width: 1412
+        height: 329
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0342191b73ce48910800000000000000
+      internalID: 1838854271820440624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_6
+      rect:
+        serializedVersion: 2
+        x: 2054
+        y: 1012
+        width: 1419
+        height: 297
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6305e07116a393670800000000000000
+      internalID: 8518904358821056566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_7
+      rect:
+        serializedVersion: 2
+        x: 4119
+        y: 988
+        width: 1410
+        height: 279
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47421be8c5ffd4ef0800000000000000
+      internalID: -122160841873087372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_8
+      rect:
+        serializedVersion: 2
+        x: 6189
+        y: 979
+        width: 1413
+        height: 268
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83b075cdc8603c1c0800000000000000
+      internalID: -4484733601869001928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_9
+      rect:
+        serializedVersion: 2
+        x: 8249
+        y: 1017
+        width: 1408
+        height: 264
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62661b2b3a6ccd370800000000000000
+      internalID: 8348766215617996326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1412
+        height: 243
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df250361a85e781b0800000000000000
+      internalID: -5654298425899855107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_11
+      rect:
+        serializedVersion: 2
+        x: 2055
+        y: 0
+        width: 1413
+        height: 219
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87012ce4bad773ee0800000000000000
+      internalID: -1281417394249396104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_12
+      rect:
+        serializedVersion: 2
+        x: 4119
+        y: 0
+        width: 1410
+        height: 196
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9036c1329bce6c670800000000000000
+      internalID: 8558788421766374153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_13
+      rect:
+        serializedVersion: 2
+        x: 6189
+        y: 7
+        width: 1413
+        height: 189
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe61348669001690800000000000000
+      internalID: -7633591032483844365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y2B3 spike trap sprites animation_14
+      rect:
+        serializedVersion: 2
+        x: 8249
+        y: 0
+        width: 1408
+        height: 191
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0d699f2481e5db0800000000000000
+      internalID: -4801373476796051235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
