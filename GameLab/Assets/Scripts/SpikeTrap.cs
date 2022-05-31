@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class SpikeTrap : MonoBehaviour
 {
-    [SerializeField] GameObject Activated;
-    [SerializeField] GameObject Deactivated;
+    [SerializeField] Animator animator;
 
 
     public void SetActivate(bool Active)
     {
-        Activated.SetActive(Active);
-        Deactivated.SetActive(!Active);
+        animator.SetBool("Active", Active);
         CancelInvoke();
         Invoke(nameof(DisableTrap), 8);
     }
@@ -23,6 +21,10 @@ public class SpikeTrap : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.tag != "Player")
+        {
+            return;
+        }
         GameObject player = collision.gameObject;
         UnityPlayerControls upc = player.GetComponent<UnityPlayerControls>();
 
@@ -43,6 +45,10 @@ public class SpikeTrap : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (collision.tag != "Player")
+        {
+            return;
+        }
         GameObject player = collision.gameObject;
         UnityPlayerControls upc = player.GetComponent<UnityPlayerControls>();
 
