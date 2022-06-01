@@ -8,6 +8,7 @@ public class ActorTeam : MonoBehaviour
 {
     [SerializeField] Material OutlineBase;
     [SerializeField] List<SpriteRenderer> sprites;
+    public List<SpriteRenderer> Tempsprites;
     [SerializeField] List<TrailRenderer> Trails;
     [SerializeField] List<TextMeshProUGUI> Texts;
     public string playerName;
@@ -59,6 +60,11 @@ public class ActorTeam : MonoBehaviour
         {
             SpriteR.material.SetColor("OutlineColor", Teamcolor);
         }
+        foreach (SpriteRenderer SpriteR in Tempsprites)
+        {
+            SpriteR.material.SetColor("OutlineColor", Teamcolor);
+        }
+
         //trailRenderers
         foreach (TrailRenderer TrailR in Trails)
         {

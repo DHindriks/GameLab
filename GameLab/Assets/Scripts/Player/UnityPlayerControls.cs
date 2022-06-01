@@ -70,6 +70,22 @@ public class UnityPlayerControls : MonoBehaviour
         CoinCounter.text = Coins.ToString();
     }
 
+    public void SetCharacter(GameObject CharObj)
+    {
+        if (CharObj == null)
+        {
+            return;
+        }
+
+        foreach(Transform transform in transform.GetChild(1))
+        {
+            Destroy(transform.gameObject);
+        }
+        GameObject NewSkin = Instantiate(CharObj, transform.GetChild(1));
+        NewSkin.transform.localPosition = Vector3.zero;
+
+    }
+
     void GatherInput()
     {
         move = moveAction.ReadValue<Vector2>();
