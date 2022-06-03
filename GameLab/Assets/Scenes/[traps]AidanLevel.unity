@@ -207,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784839573864042098, guid: 0e0553b746cc999419465b0e7aa944fd, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 784839573864042103, guid: 0e0553b746cc999419465b0e7aa944fd, type: 3}
       propertyPath: m_RootOrder
@@ -435,7 +435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 269021682}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -747,7 +747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784839573864042098, guid: 0e0553b746cc999419465b0e7aa944fd, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 784839573864042103, guid: 0e0553b746cc999419465b0e7aa944fd, type: 3}
       propertyPath: m_RootOrder
@@ -1024,7 +1024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784839573864042098, guid: 0e0553b746cc999419465b0e7aa944fd, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 784839573864042103, guid: 0e0553b746cc999419465b0e7aa944fd, type: 3}
       propertyPath: m_RootOrder
@@ -1876,7 +1876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784839573864042098, guid: 0e0553b746cc999419465b0e7aa944fd, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 784839573864042103, guid: 0e0553b746cc999419465b0e7aa944fd, type: 3}
       propertyPath: m_RootOrder
@@ -2513,7 +2513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784839573864042098, guid: 0e0553b746cc999419465b0e7aa944fd, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 784839573864042103, guid: 0e0553b746cc999419465b0e7aa944fd, type: 3}
       propertyPath: m_RootOrder
@@ -2922,7 +2922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784839573864042098, guid: 0e0553b746cc999419465b0e7aa944fd, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 784839573864042103, guid: 0e0553b746cc999419465b0e7aa944fd, type: 3}
       propertyPath: m_RootOrder
@@ -3348,6 +3348,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6481755213966918637, guid: f96bf1b0e5e38534a9735aee124e0514, type: 3}
+      propertyPath: platformsHolder
+      value: 
+      objectReference: {fileID: 1808702074}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f96bf1b0e5e38534a9735aee124e0514, type: 3}
 --- !u!1001 &1467075232

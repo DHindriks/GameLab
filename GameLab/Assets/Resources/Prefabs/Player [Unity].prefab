@@ -559,10 +559,10 @@ MonoBehaviour:
   decelerationRate: 250
   maxJumps: 1
   jumpSpeed: 35
-  groundCheckDistance: 0.1
+  groundCheckDistance: 0.015
   GroundMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 32506048
   jumpApexThreshold: 8
   jumpApexThresholdStep: 200
   gravity: 20

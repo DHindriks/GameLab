@@ -32,6 +32,8 @@ public class UnityPlayerControls : MonoBehaviour
     [SerializeField][Range(0, 10)] float afterHitInvincibilityTime;
     float invincibilityTimer;
 
+    //Sprite
+    SpriteRenderer sprRender;
 
     //TempBullshit for testing
     [SerializeField] Sprite spr1;
@@ -39,6 +41,7 @@ public class UnityPlayerControls : MonoBehaviour
 
     void Awake()
     {
+        sprRender = GetComponent<SpriteRenderer>();
         GameObject.DontDestroyOnLoad(gameObject);
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
@@ -54,6 +57,7 @@ public class UnityPlayerControls : MonoBehaviour
         ChangeOrientation();
         AfterHitInvincibility();
         decayHoney();
+        changeSprites();
     }
 
     private void FixedUpdate()
@@ -340,6 +344,26 @@ public class UnityPlayerControls : MonoBehaviour
         if (honeyedTimer <= 0)
         {
             isHoneyed = false;
+        }
+    }
+
+    private void changeSprites()
+    {
+        if (isHoneyed)
+        {
+            sprRender.color = Color.yellow;
+        }
+        else if (isShielded)
+        {
+            sprRender.color = Color.red;
+        }
+        else if (isInvincilbe)
+        {
+            sprRender.color = Color.black;
+        }
+        else
+        {
+            sprRender.color = Color.white;
         }
     }
 }
