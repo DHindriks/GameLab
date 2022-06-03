@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AddSpriteToTeam : MonoBehaviour
 {
-    [SerializeField] List<SpriteRenderer> sprites;
+    public List<SpriteRenderer> sprites;
 
     // Start is called before the first frame update
     void Start()

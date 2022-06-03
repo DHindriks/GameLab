@@ -33,7 +33,7 @@ public class UnityPlayerControls : MonoBehaviour
     float invincibilityTimer;
 
     //Sprite
-    SpriteRenderer sprRender;
+    List<SpriteRenderer> sprRender;
 
     //TempBullshit for testing
     [SerializeField] Sprite spr1;
@@ -41,7 +41,8 @@ public class UnityPlayerControls : MonoBehaviour
 
     void Awake()
     {
-        sprRender = GetComponent<SpriteRenderer>();
+        sprRender = new List<SpriteRenderer>();
+        sprRender = GetComponentInChildren<AddSpriteToTeam>().sprites;
         GameObject.DontDestroyOnLoad(gameObject);
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
@@ -87,6 +88,8 @@ public class UnityPlayerControls : MonoBehaviour
         }
         GameObject NewSkin = Instantiate(CharObj, transform.GetChild(1));
         NewSkin.transform.localPosition = Vector3.zero;
+        sprRender = new List<SpriteRenderer>();
+        sprRender = NewSkin.GetComponent<AddSpriteToTeam>().sprites;
 
     }
 
@@ -367,19 +370,31 @@ public class UnityPlayerControls : MonoBehaviour
     {
         if (isHoneyed)
         {
-            sprRender.color = Color.yellow;
+            foreach (SpriteRenderer renderer in sprRender)
+            {
+                renderer.color = Color.yellow;
+            }
         }
         else if (isShielded)
         {
-            sprRender.color = Color.red;
+            foreach (SpriteRenderer renderer in sprRender)
+            {
+                renderer.color = Color.red;
+            }
         }
         else if (isInvincilbe)
         {
-            sprRender.color = Color.black;
+            foreach (SpriteRenderer renderer in sprRender)
+            {
+                renderer.color = Color.black;
+            }
         }
         else
         {
-            sprRender.color = Color.white;
+            foreach (SpriteRenderer renderer in sprRender)
+            {
+                renderer.color = Color.white;
+            }
         }
     }
 }
