@@ -12,7 +12,7 @@ public class StartMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inContact && playerInput.useAction.ReadValue<float>() == 1)
+        if (inContact && playerInput.powerUpAction.ReadValue<float>() == 1)
         {
             SceneManager.LoadScene("[traps]AidanLevel");
         }
