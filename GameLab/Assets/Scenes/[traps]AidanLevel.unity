@@ -3319,6 +3319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   duration: 0
+  deadlyWhileActive: 1
   animator: {fileID: 0}
 --- !u!4 &1396045883
 Transform:
@@ -3767,7 +3768,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -8589129759021497562, guid: 6f6d532783a07bb4fbd3cfcedba9ee6d, type: 3}
-  m_PlayerPrefab: {fileID: 4949398991367284450, guid: 843361e45573d9c4ebbed2c2808d5669, type: 3}
+  m_PlayerPrefab: {fileID: 1111991345312448569, guid: 38d1ec437a637ad48b19f897f9d94438, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
