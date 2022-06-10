@@ -11,6 +11,7 @@ public class UnityPlayerControls : MonoBehaviour
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction duckAction;
+    public InputAction powerUpAction;
     public InputAction useAction;
     Vector2 move;
     float jump;
@@ -22,7 +23,7 @@ public class UnityPlayerControls : MonoBehaviour
     [SerializeField] TextMeshProUGUI CoinCounter;
 
     //Player gameover
-    private int RespawnTimer;
+    bool EnableMovement = true;
     Vector2 RespawnPoint;
     [SerializeField] GameObject CoinPrefab;
     public bool isShielded = false;
@@ -63,10 +64,13 @@ public class UnityPlayerControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GatherInput();
-        CalculateMovement();
-        CalculateJump();
-        CommitMovement();
+        if (EnableMovement)
+        {
+            GatherInput();
+            CalculateMovement();
+            CalculateJump();
+            CommitMovement();
+        }
     }
 
     public void AddCoin(int amount = 1)
@@ -210,6 +214,9 @@ public class UnityPlayerControls : MonoBehaviour
     [SerializeField] private float jumpApexThreshold = 0.25f;
     [SerializeField] private float jumpApexThresholdStep = 0.05f;
 
+    List<RaycastHit2D> results = new List<RaycastHit2D>();
+    [SerializeField] ContactFilter2D filter;
+
     [Header("Gravity")]
     [SerializeField] private float gravity;
     [SerializeField] private float minFallSpeed = 40f;
@@ -223,7 +230,9 @@ public class UnityPlayerControls : MonoBehaviour
     void CalculateJump()
     {
         _verticalSpeed = float.NaN;
-        if (Physics2D.BoxCast(transform.position, new Vector2(GetComponent<BoxCollider2D>().size.x * 0.8f, groundCheckDistance), 0, Vector2.down, 0f, GroundMask)) //the horixontal size must be lowered from the actual size so that vertical walls wont be counted as being on the ground
+        results = new List<RaycastHit2D>();
+        Physics2D.BoxCast(transform.position, new Vector2(GetComponent<BoxCollider2D>().size.x * 0.8f, groundCheckDistance), 0, Vector2.down, filter, results, groundCheckDistance);
+        if (results.Count > 1 || results[0].transform.gameObject != gameObject) //the horizontal size must be lowered from the actual size so that vertical walls wont be counted as being on the ground
         {
             grounded = true;
             numberOfJumps = maxJumps;
@@ -314,7 +323,8 @@ public class UnityPlayerControls : MonoBehaviour
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
         duckAction = playerInput.actions["Duck"];
-        useAction = playerInput.actions["PowerUp"];
+        useAction = playerInput.actions["Use"];
+        powerUpAction = playerInput.actions["PowerUp"];
     }
     #endregion
     void ChangeOrientation()
@@ -329,15 +339,42 @@ public class UnityPlayerControls : MonoBehaviour
         }
     }
 
-    public void KillPlayer()
+    public void KillPlayer(int respawnTime = 6)
     {
-        //for(int i = 0; i < Coins; i++)
-        //{
-        //    GameObject Coin = Instantiate(CoinPrefab);
-        //}
-
-        transform.position = RespawnPoint;
+        SetPlayerActive(false);
+        for (int i = 0; i < Coins; i++)
+        {
+            GameObject Coin = Instantiate(CoinPrefab);
+            Coin.transform.position = transform.position;
+            Rigidbody2D CoinRb = Coin.GetComponent<Rigidbody2D>();
+            CoinRb.bodyType = RigidbodyType2D.Dynamic;
+            CoinRb.AddForce(Vector2.up * Random.Range(500, 800));
+            CoinRb.AddTorque(Random.Range(-70, 70));
+        }
+        Invoke("RespawnPlayer", respawnTime);
         Coins = 0;
+    }
+
+    void SetPlayerActive(bool active)
+    {
+        if (active)
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        }else
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        }
+        EnableMovement = active;
+        GetComponent<BoxCollider2D>().enabled = active;
+        transform.GetChild(0).gameObject.SetActive(active);
+        transform.GetChild(1).gameObject.SetActive(active);
+        transform.GetChild(3).gameObject.SetActive(active);
+    }
+
+    void RespawnPlayer()
+    {
+        transform.position = RespawnPoint;
+        SetPlayerActive(true);
     }
 
     private void AfterHitInvincibility()

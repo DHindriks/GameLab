@@ -71,6 +71,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Use"",
+                    ""type"": ""Button"",
+                    ""id"": ""0887a5b4-396d-49ea-8486-37512578f52c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -216,6 +225,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""PowerUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bbbb1877-30f2-4ce1-8f25-5053f94cabc3"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -257,6 +277,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Game_Duck = m_Game.FindAction("Duck", throwIfNotFound: true);
         m_Game_Join = m_Game.FindAction("Join", throwIfNotFound: true);
         m_Game_PowerUp = m_Game.FindAction("PowerUp", throwIfNotFound: true);
+        m_Game_Use = m_Game.FindAction("Use", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -321,6 +342,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_Duck;
     private readonly InputAction m_Game_Join;
     private readonly InputAction m_Game_PowerUp;
+    private readonly InputAction m_Game_Use;
     public struct GameActions
     {
         private @PlayerControls m_Wrapper;
@@ -330,6 +352,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Duck => m_Wrapper.m_Game_Duck;
         public InputAction @Join => m_Wrapper.m_Game_Join;
         public InputAction @PowerUp => m_Wrapper.m_Game_PowerUp;
+        public InputAction @Use => m_Wrapper.m_Game_Use;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -354,6 +377,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @PowerUp.started -= m_Wrapper.m_GameActionsCallbackInterface.OnPowerUp;
                 @PowerUp.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnPowerUp;
                 @PowerUp.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnPowerUp;
+                @Use.started -= m_Wrapper.m_GameActionsCallbackInterface.OnUse;
+                @Use.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnUse;
+                @Use.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnUse;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -373,6 +399,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @PowerUp.started += instance.OnPowerUp;
                 @PowerUp.performed += instance.OnPowerUp;
                 @PowerUp.canceled += instance.OnPowerUp;
+                @Use.started += instance.OnUse;
+                @Use.performed += instance.OnUse;
+                @Use.canceled += instance.OnUse;
             }
         }
     }
@@ -402,5 +431,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnDuck(InputAction.CallbackContext context);
         void OnJoin(InputAction.CallbackContext context);
         void OnPowerUp(InputAction.CallbackContext context);
+        void OnUse(InputAction.CallbackContext context);
     }
 }
