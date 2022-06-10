@@ -3,50 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AbilityGhostPepper : MonoBehaviour
+public class AbilityGhostPepper : BasePowerup
 {
     [SerializeField] private float duration;
-    private bool pickedUp = false;
-    InputAction Activate;
-    UnityPlayerControls upc;
 
-    // Update is called once per frame
-    void Update()
+    public override void Ability()
     {
-        if (pickedUp && Activate.IsPressed())
-        {
-            upc.isShielded = true;
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!pickedUp && collision.gameObject.tag == "Player")//If player touches it
-        {
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            transform.parent = collision.gameObject.transform;//Set position to player (now parent)
-            transform.position = transform.parent.position;
-
-            Activate = GetComponentInParent<PlayerInput>().actions["PowerUp"]; //Get the activate button
-            pickedUp = true;
-
-            upc = transform.parent.GetComponent<UnityPlayerControls>();
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (!pickedUp && collision.gameObject.tag == "Player")//If player touches it
-        {
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            transform.parent = collision.gameObject.transform;//Set position to player (now parent)
-            transform.position = transform.parent.position;
-
-            Activate = GetComponentInParent<PlayerInput>().actions["PowerUp"]; //Get the activate button
-            pickedUp = true;
-
-            upc = transform.parent.GetComponent<UnityPlayerControls>();
-        }
+        base.upc.isShielded = true;
+        Destroy(gameObject);
     }
 }
