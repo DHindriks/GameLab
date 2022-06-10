@@ -13,6 +13,7 @@ public class BasePowerup : MonoBehaviour
     {
         if (pickedUp && Activate.IsPressed())
         {
+            pickedUp = false;
             Ability();
         }
     }
