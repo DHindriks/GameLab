@@ -22,7 +22,7 @@ public class UnityPlayerControls : MonoBehaviour
     public int Coins;
     [SerializeField] TextMeshProUGUI CoinCounter;
 
-    //Player gameover
+    //Player variables
     bool EnableMovement = true;
     Vector2 RespawnPoint;
     [SerializeField] GameObject CoinPrefab;
@@ -32,6 +32,7 @@ public class UnityPlayerControls : MonoBehaviour
     public float honeyedTimer;
     [SerializeField][Range(0, 10)] float afterHitInvincibilityTime;
     float invincibilityTimer;
+    public bool hasPowerup = false;
 
     //Sprite
     List<SpriteRenderer> sprRender;

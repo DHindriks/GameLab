@@ -14,6 +14,7 @@ public class BasePowerup : MonoBehaviour
         if (pickedUp && Activate.IsPressed())
         {
             pickedUp = false;
+            upc.hasPowerup = false;
             Ability();
         }
     }
@@ -35,16 +36,20 @@ public class BasePowerup : MonoBehaviour
 
     void PickUpItem(Collider2D collision)
     {
-        if (!pickedUp && collision.gameObject.tag == "Player")//If player touches it
+        if (!pickedUp && collision.gameObject.tag == "Player" && collision)//If player touches it
         {
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            transform.parent = collision.gameObject.transform;//Set position to player (now parent)
-            transform.position = transform.parent.position;
+            upc = collision.gameObject.GetComponent<UnityPlayerControls>();
 
-            Activate = GetComponentInParent<PlayerInput>().actions["PowerUp"]; //Get the activate button
-            pickedUp = true;
+            if (!upc.hasPowerup)
+            {
+                gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                transform.parent = collision.gameObject.transform;//Set position to player (now parent)
+                transform.position = transform.parent.position;
 
-            upc = transform.parent.GetComponent<UnityPlayerControls>();
+                Activate = GetComponentInParent<PlayerInput>().actions["PowerUp"]; //Get the activate button
+                pickedUp = true;
+                upc.hasPowerup = true;
+            }
         }
     }
 }
