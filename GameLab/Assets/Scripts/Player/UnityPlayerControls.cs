@@ -107,9 +107,7 @@ public class UnityPlayerControls : MonoBehaviour
 
     #region Movement
     [Header("Movement")]
-    [SerializeField] private float maxSpeed;
-    //[SerializeField] [Range(0, 1)] private float innerDeadzone; //This is stupid to handle it here
-    //[SerializeField] [Range(0, 1)] private float outerDeadzone;
+    [SerializeField] public float maxSpeed;
 
     [Header("Acceleration")]
     [SerializeField] private bool doAccelerate = false;
