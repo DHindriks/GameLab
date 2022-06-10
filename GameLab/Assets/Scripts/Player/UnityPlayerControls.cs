@@ -349,6 +349,7 @@ public class UnityPlayerControls : MonoBehaviour
             Rigidbody2D CoinRb = Coin.GetComponent<Rigidbody2D>();
             CoinRb.bodyType = RigidbodyType2D.Dynamic;
             CoinRb.AddForce(Vector2.up * Random.Range(500, 800));
+            CoinRb.AddForce(Vector2.right * Random.Range(-30, 30));
             CoinRb.AddTorque(Random.Range(-70, 70));
         }
         Invoke("RespawnPlayer", respawnTime);
