@@ -14,7 +14,7 @@ public class StartMap : MonoBehaviour
     {
         if (inContact && playerInput.useAction.ReadValue<float>() == 1)
         {
-            SceneManager.LoadScene("[traps]AidanLevel");
+            SceneManager.LoadScene("Platform 2x");
         }
     }
 
