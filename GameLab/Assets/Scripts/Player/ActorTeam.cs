@@ -10,6 +10,8 @@ public class ActorTeam : MonoBehaviour
     [SerializeField] List<SpriteRenderer> sprites;
     public List<SpriteRenderer> Tempsprites;
     [SerializeField] List<TrailRenderer> Trails;
+    [SerializeField] List<ParticleSystem> Particles;
+    public List<ParticleSystem> TempParticles;
     [SerializeField] List<TextMeshProUGUI> Texts;
     public string playerName;
     public Teams Team = Teams.None;
@@ -71,6 +73,17 @@ public class ActorTeam : MonoBehaviour
             TrailR.startColor = Teamcolor;
             TrailR.endColor = Teamcolor;
         }
+
+        //particles
+        foreach (ParticleSystem part in Particles)
+        {
+            part.startColor = Teamcolor;
+        }
+        foreach (ParticleSystem part in TempParticles)
+        {
+            part.startColor = Teamcolor;
+        }
+
         //textmeshpro
         foreach (TextMeshProUGUI Text in Texts)
         {

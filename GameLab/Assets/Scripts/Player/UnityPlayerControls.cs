@@ -344,6 +344,7 @@ public class UnityPlayerControls : MonoBehaviour
         for (int i = 0; i < Coins; i++)
         {
             GameObject Coin = Instantiate(CoinPrefab);
+            Destroy(Coin.GetComponentInChildren<Animator>());
             Coin.transform.position = transform.position;
             Rigidbody2D CoinRb = Coin.GetComponent<Rigidbody2D>();
             CoinRb.bodyType = RigidbodyType2D.Dynamic;
