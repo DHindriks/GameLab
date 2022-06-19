@@ -512,6 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e53b025b2131c4dae586240eb90067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadLevel: Small 1
 --- !u!1 &351833263
 GameObject:
   m_ObjectHideFlags: 0
@@ -3607,6 +3608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e53b025b2131c4dae586240eb90067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadLevel: Large 1
 --- !u!61 &2066880661
 BoxCollider2D:
   m_ObjectHideFlags: 0

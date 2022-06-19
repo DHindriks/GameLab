@@ -8,13 +8,14 @@ public class StartMap : MonoBehaviour
 {
     private bool inContact = false;
     private UnityPlayerControls playerInput;
+    [SerializeField] private string loadLevel;
 
     // Update is called once per frame
     void Update()
     {
         if (inContact && playerInput.useAction.ReadValue<float>() == 1)
         {
-            SceneManager.LoadScene("Platform 2x");
+            SceneManager.LoadScene(loadLevel);
         }
     }
 
