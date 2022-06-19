@@ -7,6 +7,7 @@ public class MovingPlatformV2 : BaseTrap
     [SerializeField] List<Transform> checkpoints;
     [SerializeField][Range(0, 20)] float speed;
     [SerializeField] bool movesWhenActive = false;
+    [SerializeField] bool StopAfterLoop;
     float currentSpeed;
     int direction = 1;
     int counter = 0;
@@ -26,6 +27,11 @@ public class MovingPlatformV2 : BaseTrap
             {
                 direction *= -1;
                 counter += direction;
+                if(StopAfterLoop && counter == 1)
+                {
+                    SetInactive();
+                    CancelInvoke("SetInactive");
+                }
             }
             else
             {

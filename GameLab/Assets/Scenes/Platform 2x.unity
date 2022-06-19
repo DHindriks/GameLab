@@ -3696,6 +3696,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 264919353889533032, guid: c53497270e7f280438cca8ab49546b43, type: 3}
+      propertyPath: duration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 264919353889533032, guid: c53497270e7f280438cca8ab49546b43, type: 3}
+      propertyPath: StopAfterLoop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3220275333339205405, guid: c53497270e7f280438cca8ab49546b43, type: 3}
       propertyPath: m_Name
       value: MovingPlatformPan
