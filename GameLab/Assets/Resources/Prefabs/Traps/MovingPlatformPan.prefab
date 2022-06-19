@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 8722314694286619184}
   speed: 4
   movesWhenActive: 1
+  StopAfterLoop: 0
 --- !u!61 &264919353889533008
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5092,7 +5093,7 @@ GameObject:
   - component: {fileID: 8722314693940312550}
   - component: {fileID: 8722314693940312549}
   - component: {fileID: 8722314693940312548}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: elevator Y2B4_1Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
