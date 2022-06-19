@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinGeneral : MonoBehaviour
 {
     public int value = 0;
+    public bool PreventRespawn = false;
     [SerializeField] Transform platformsHolder;
     List<GameObject> platforms;
     int numberOfPlatforms;
@@ -38,8 +39,15 @@ public class CoinGeneral : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Spawn();
             collision.GetComponent<UnityPlayerControls>().AddCoin();
+            if (PreventRespawn)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Spawn();
+            }
         }
     }
 }

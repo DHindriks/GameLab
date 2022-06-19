@@ -40,10 +40,11 @@ public class BasePowerup : MonoBehaviour
         {
             upc = collision.gameObject.GetComponent<UnityPlayerControls>();
 
-            if (!upc.hasPowerup)
+            if (!upc.hasPowerup && collision.gameObject.transform.GetChild(0))
             {
                 gameObject.GetComponent<CircleCollider2D>().enabled = false;
-                transform.parent = collision.gameObject.transform;//Set position to player (now parent)
+                gameObject.GetComponentInChildren<Animator>().enabled = false;
+                transform.parent = collision.gameObject.transform.GetChild(0);//Set position to player (now parent)
                 transform.position = transform.parent.position;
 
                 Activate = GetComponentInParent<PlayerInput>().actions["PowerUp"]; //Get the activate button
