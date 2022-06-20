@@ -51,6 +51,8 @@ public class UnityPlayerControls : MonoBehaviour
         RespawnPoint = new Vector2(0, 2);
         invincibilityTimer = afterHitInvincibilityTime;
 
+        OgmaxSpeed = maxSpeed;
+
         mapControls();
         assignSprites();
     }
@@ -112,6 +114,7 @@ public class UnityPlayerControls : MonoBehaviour
     #region Movement
     [Header("Movement")]
     [SerializeField] public float maxSpeed;
+    [HideInInspector] public float OgmaxSpeed;
 
     [Header("Acceleration")]
     [SerializeField] private bool doAccelerate = false;
