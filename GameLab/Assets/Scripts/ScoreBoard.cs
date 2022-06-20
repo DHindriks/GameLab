@@ -7,6 +7,7 @@ public class ScoreBoard : MonoBehaviour
 {
     [SerializeField] Image Icon;
     [SerializeField] Image ProgressBar;
+    [SerializeField] List<Image> ColorSprites;
 
     public void SetIcon(Sprite NewIcon)
     {
@@ -20,6 +21,9 @@ public class ScoreBoard : MonoBehaviour
 
     public void SetColor(Color NewColor)
     {
-        ProgressBar.color = NewColor;
+        foreach (Image sprite in ColorSprites)
+        {
+            sprite.color = NewColor;
+        }
     }
 }

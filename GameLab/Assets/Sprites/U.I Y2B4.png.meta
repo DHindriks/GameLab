@@ -1,0 +1,552 @@
+fileFormatVersion: 2
+guid: b5544d759d0475b4e82a81c8e561aa6c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6970925840622694742
+    second: U.I Y2B4_0
+  - first:
+      213: -8505068214734898638
+    second: U.I Y2B4_1
+  - first:
+      213: 18781304393030788
+    second: U.I Y2B4_2
+  - first:
+      213: -1463439532288017847
+    second: U.I Y2B4_3
+  - first:
+      213: 3250141559817134966
+    second: U.I Y2B4_4
+  - first:
+      213: -5670597462055533940
+    second: U.I Y2B4_5
+  - first:
+      213: -8901349231825830266
+    second: U.I Y2B4_6
+  - first:
+      213: -271183338550416155
+    second: U.I Y2B4_7
+  - first:
+      213: 9222966189774300727
+    second: U.I Y2B4_8
+  - first:
+      213: 9067521485641624208
+    second: U.I Y2B4_9
+  - first:
+      213: 8982258466402717390
+    second: U.I Y2B4_10
+  - first:
+      213: -8153386175428037975
+    second: U.I Y2B4_11
+  - first:
+      213: 6526637524196101804
+    second: U.I Y2B4_12
+  - first:
+      213: -8826659799153290248
+    second: U.I Y2B4_13
+  - first:
+      213: -2970641286966842543
+    second: U.I Y2B4_14
+  - first:
+      213: -8414298163750594344
+    second: U.I Y2B4_15
+  - first:
+      213: 1043155020201419851
+    second: U.I Y2B4_16
+  - first:
+      213: 1688836081632115865
+    second: U.I Y2B4_17
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: U.I Y2B4_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 2980
+        width: 1841
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaec71aa1eb424f90800000000000000
+      internalID: -6970925840622694742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_1
+      rect:
+        serializedVersion: 2
+        x: 2141
+        y: 3106
+        width: 861
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ab24e358de7f980800000000000000
+      internalID: -8505068214734898638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_2
+      rect:
+        serializedVersion: 2
+        x: 3534
+        y: 3108
+        width: 1506
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48cd3c03f79b24000800000000000000
+      internalID: 18781304393030788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2439
+        width: 1838
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94a75bfbf71d0bbe0800000000000000
+      internalID: -1463439532288017847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_4
+      rect:
+        serializedVersion: 2
+        x: 2134
+        y: 2599
+        width: 1046
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67362a65782da1d20800000000000000
+      internalID: 3250141559817134966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_5
+      rect:
+        serializedVersion: 2
+        x: 3534
+        y: 2530
+        width: 1506
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c82c2f107adfd41b0800000000000000
+      internalID: -5670597462055533940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1843
+        width: 1839
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e3357f80e087480800000000000000
+      internalID: -8901349231825830266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_7
+      rect:
+        serializedVersion: 2
+        x: 2099
+        y: 1920
+        width: 1152
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eca2bcb0309c3cf0800000000000000
+      internalID: -271183338550416155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_8
+      rect:
+        serializedVersion: 2
+        x: 3534
+        y: 1986
+        width: 1506
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7366fec52ee8eff70800000000000000
+      internalID: 9222966189774300727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_9
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1265
+        width: 1841
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a24e8dfbe46dd70800000000000000
+      internalID: 9067521485641624208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_10
+      rect:
+        serializedVersion: 2
+        x: 2239
+        y: 1430
+        width: 758
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ececda23c7467ac70800000000000000
+      internalID: 8982258466402717390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_11
+      rect:
+        serializedVersion: 2
+        x: 3534
+        y: 1408
+        width: 1506
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2f701d87a59de80800000000000000
+      internalID: -8153386175428037975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_12
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 655
+        width: 1841
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae8177af36439a50800000000000000
+      internalID: 6526637524196101804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_13
+      rect:
+        serializedVersion: 2
+        x: 3514
+        y: 783
+        width: 1506
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f35f36ada7618580800000000000000
+      internalID: -8826659799153290248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_14
+      rect:
+        serializedVersion: 2
+        x: 2001
+        y: 593
+        width: 1321
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b6b371d7926c6d0800000000000000
+      internalID: -2970641286966842543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_15
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 1841
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d89c63a6686a3b80800000000000000
+      internalID: -8414298163750594344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_16
+      rect:
+        serializedVersion: 2
+        x: 2220
+        y: 22
+        width: 541
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4465c8c6f70a7e00800000000000000
+      internalID: 1043155020201419851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U.I Y2B4_17
+      rect:
+        serializedVersion: 2
+        x: 3534
+        y: 187
+        width: 1506
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c7b89e773ff6710800000000000000
+      internalID: 1688836081632115865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
