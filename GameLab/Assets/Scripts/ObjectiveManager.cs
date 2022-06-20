@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ParticleSystemJobs;
 using TMPro;
 
 public class ObjectiveManager : MonoBehaviour
@@ -18,6 +19,8 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] Transform ScoreBoardL;
     [SerializeField] Transform ScoreBoardR;
 
+    [SerializeField] ParticleSystem CashInParts;
+
     [SerializeField] TextMeshProUGUI Timer;
 
     //UI - End screen
@@ -28,6 +31,14 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] Color Secondcolor;
     [SerializeField] Color Thirdcolor;
     [SerializeField] Color Restcolor;
+
+    void Start()
+    {
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            AddpointsToTeam(player);
+        }
+    }
 
     void Update()
     {
@@ -107,6 +118,21 @@ public class ObjectiveManager : MonoBehaviour
     void AddpointsToTeam(GameObject DeliveringPlayer)
     {
         int CoinsToAdd = DeliveringPlayer.GetComponent<UnityPlayerControls>().Coins;
+
+        if (CoinsToAdd > 0)
+        {
+            //particles
+            ParticleSystem CoinBurst = Instantiate(CashInParts);
+            ParticleSystem.Burst Amount = new ParticleSystem.Burst();
+            Amount.count = 1;
+            Amount.cycleCount = CoinsToAdd;
+            Amount.repeatInterval = 0.1f;
+            Amount.probability = 1;
+            CoinBurst.emission.SetBurst(0, Amount);
+            CoinBurst.transform.position = transform.position;
+            CoinBurst.Play();
+        }
+
         
         //cycles through participating teams, adds coins to the right team if found.
         foreach(Team team in ParticipatingTeams)
@@ -138,6 +164,13 @@ public class ObjectiveManager : MonoBehaviour
         NewTeam.TeamColor = DeliveringPlayer.GetComponent<ActorTeam>().Teamcolor;
         NewTeam.scoreBoard.SetColor(NewTeam.TeamColor);
         NewTeam.scoreBoard.SetFillAmount((float)NewTeam.CurrentCoins / (float)CoinsNeeded);
+        if (NewTeam.ParticipatingTeam == Teams.None)
+        {
+            NewTeam.scoreBoard.SetIcon(NewTeam.teamLeader.transform.GetChild(1).GetComponentInChildren<AddSpriteToTeam>().Icon);
+        }else
+        {
+            NewTeam.scoreBoard.SetIcon();
+        }
         ParticipatingTeams.Add(NewTeam);
         DeliveringPlayer.GetComponent<UnityPlayerControls>().AddCoin(-CoinsToAdd);
 

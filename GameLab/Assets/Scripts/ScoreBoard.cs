@@ -7,10 +7,23 @@ public class ScoreBoard : MonoBehaviour
 {
     [SerializeField] Image Icon;
     [SerializeField] Image ProgressBar;
+    [SerializeField] List<Image> ColorSprites;
 
-    public void SetIcon(Sprite NewIcon)
+    void Start()
     {
-        Icon.sprite = NewIcon;
+        if (Icon.sprite == null)
+        {
+            Icon.gameObject.SetActive(false);
+        }
+    }
+
+    public void SetIcon(Sprite NewIcon = null)
+    {
+        if (NewIcon != null)
+        {
+            Icon.gameObject.SetActive(true);
+            Icon.sprite = NewIcon;
+        }
     }
 
     public void SetFillAmount(float Fillamount)
@@ -20,6 +33,9 @@ public class ScoreBoard : MonoBehaviour
 
     public void SetColor(Color NewColor)
     {
-        ProgressBar.color = NewColor;
+        foreach (Image sprite in ColorSprites)
+        {
+            sprite.color = NewColor;
+        }
     }
 }
