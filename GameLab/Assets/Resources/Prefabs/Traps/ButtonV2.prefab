@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  sprActive: {fileID: 21300000, guid: faaca6899997f3147980686b86e0fb6d, type: 3}
-  sprInactive: {fileID: 21300000, guid: c2a735510ae2ed04299842c236e0a24f, type: 3}
+  sprActive: {fileID: -6934815542505499695, guid: 7784ba9a41d75c74c8f98b939e36661c, type: 3}
+  sprInactive: {fileID: -1117660389326672874, guid: 7784ba9a41d75c74c8f98b939e36661c, type: 3}
+  activatedByButtonPress: 0
 --- !u!212 &1105318090600336357
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -89,7 +90,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c2a735510ae2ed04299842c236e0a24f, type: 3}
+  m_Sprite: {fileID: -1117660389326672874, guid: 7784ba9a41d75c74c8f98b939e36661c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
