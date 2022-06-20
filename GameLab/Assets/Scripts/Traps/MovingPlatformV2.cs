@@ -30,7 +30,6 @@ public class MovingPlatformV2 : BaseTrap
                 if(StopAfterLoop && counter == 1)
                 {
                     SetInactive();
-                    CancelInvoke("SetInactive");
                 }
             }
             else
@@ -49,6 +48,11 @@ public class MovingPlatformV2 : BaseTrap
     public override void Active()
     {
         base.Active();
+        if (StopAfterLoop)
+        {
+            CancelInvoke("SetInactive");
+        }
+
         if (movesWhenActive)
             currentSpeed = speed;
         else
