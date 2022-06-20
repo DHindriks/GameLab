@@ -5,10 +5,10 @@ using UnityEngine;
 public class CoinGeneral : MonoBehaviour
 {
     public int value = 0;
+    public bool PreventRespawn = false;
     [SerializeField] Transform platformsHolder;
     List<GameObject> platforms;
     int numberOfPlatforms;
-    private AudioSource coinSoundSource;
 
     private void Start()
     {
@@ -19,8 +19,6 @@ public class CoinGeneral : MonoBehaviour
         {
             platforms.Add(child.gameObject);
         }
-
-        coinSoundSource = GetComponent<AudioSource>();
     }
 
     public void Spawn()
@@ -41,9 +39,15 @@ public class CoinGeneral : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            coinSoundSource.Play();
-            Spawn();
             collision.GetComponent<UnityPlayerControls>().AddCoin();
+            if (PreventRespawn)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Spawn();
+            }
         }
     }
 }

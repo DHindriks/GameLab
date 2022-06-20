@@ -10,7 +10,7 @@ public class AbilityCandy : BasePowerup
 
     public override void Ability()
     {
-        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
         ogMaxSpeed = base.upc.maxSpeed;
         base.upc.maxSpeed = speedUp;
         Invoke("ResetSpeed", duration);
