@@ -917,7 +917,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.72, y: 8.66}
+    oldSize: {x: 3.488, y: 3.464}
     newSize: {x: 20.48, y: 20.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -939,8 +939,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreBoardPrefab: {fileID: 4613081797078085787, guid: 574b016369ba74b4d996eff415d17168, type: 3}
-  CoinsNeeded: 5
-  TimeLeft: 120
+  CoinsNeeded: 30
+  TimeLeft: 180
   Timerunning: 1
   ScoreBoardL: {fileID: 9141515493512817710}
   ScoreBoardR: {fileID: 9141515492974961400}
