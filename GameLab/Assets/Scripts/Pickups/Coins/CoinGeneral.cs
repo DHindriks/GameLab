@@ -9,9 +9,11 @@ public class CoinGeneral : MonoBehaviour
     [SerializeField] Transform platformsHolder;
     List<GameObject> platforms;
     int numberOfPlatforms;
+    private AudioSource coinSound;
 
     private void Start()
     {
+        coinSound = GetComponent<AudioSource>();
         platforms = new List<GameObject>();
         platformsHolder = GameObject.Find("Platforms").transform;
 
@@ -39,6 +41,7 @@ public class CoinGeneral : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            coinSound.Play();
             collision.GetComponent<UnityPlayerControls>().AddCoin();
             if (PreventRespawn)
             {
