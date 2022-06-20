@@ -9,9 +9,21 @@ public class ScoreBoard : MonoBehaviour
     [SerializeField] Image ProgressBar;
     [SerializeField] List<Image> ColorSprites;
 
-    public void SetIcon(Sprite NewIcon)
+    void Start()
     {
-        Icon.sprite = NewIcon;
+        if (Icon.sprite == null)
+        {
+            Icon.gameObject.SetActive(false);
+        }
+    }
+
+    public void SetIcon(Sprite NewIcon = null)
+    {
+        if (NewIcon != null)
+        {
+            Icon.gameObject.SetActive(true);
+            Icon.sprite = NewIcon;
+        }
     }
 
     public void SetFillAmount(float Fillamount)

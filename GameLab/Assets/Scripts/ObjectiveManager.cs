@@ -164,6 +164,13 @@ public class ObjectiveManager : MonoBehaviour
         NewTeam.TeamColor = DeliveringPlayer.GetComponent<ActorTeam>().Teamcolor;
         NewTeam.scoreBoard.SetColor(NewTeam.TeamColor);
         NewTeam.scoreBoard.SetFillAmount((float)NewTeam.CurrentCoins / (float)CoinsNeeded);
+        if (NewTeam.ParticipatingTeam == Teams.None)
+        {
+            NewTeam.scoreBoard.SetIcon(NewTeam.teamLeader.transform.GetChild(1).GetComponentInChildren<AddSpriteToTeam>().Icon);
+        }else
+        {
+            NewTeam.scoreBoard.SetIcon();
+        }
         ParticipatingTeams.Add(NewTeam);
         DeliveringPlayer.GetComponent<UnityPlayerControls>().AddCoin(-CoinsToAdd);
 

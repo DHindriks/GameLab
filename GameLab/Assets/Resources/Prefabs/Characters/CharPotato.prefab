@@ -750,6 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d67dc0f0691a8449bf829eb668e4c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Icon: {fileID: 2538698172506787572, guid: dc27d21e445602244b33928d48222840, type: 3}
   sprites:
   - {fileID: 2531573810196133635}
   - {fileID: 6344834549451006214}

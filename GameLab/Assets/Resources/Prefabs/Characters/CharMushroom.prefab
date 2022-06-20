@@ -1053,6 +1053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d67dc0f0691a8449bf829eb668e4c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Icon: {fileID: 49462367752722615, guid: fabc8ea03ac795641b2161f4b1624abf, type: 3}
   sprites:
   - {fileID: 8578811215184898258}
   - {fileID: 2820137539433465753}
