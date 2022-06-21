@@ -245,6 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3808801215632633818}
   - component: {fileID: 1701697985927781017}
+  - component: {fileID: 3261032181643038202}
   m_Layer: 0
   m_Name: CharEggplant
   m_TagString: Untagged
@@ -283,6 +284,25 @@ MonoBehaviour:
   Icon: {fileID: -6669994066974104217, guid: dc27d21e445602244b33928d48222840, type: 3}
   sprites:
   - {fileID: 8039788215118886174}
+--- !u!95 &3261032181643038202
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3740681179915302649}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 376bcdbb2d193b84182e3ab8c1181478, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4270818942880553520
 GameObject:
   m_ObjectHideFlags: 0

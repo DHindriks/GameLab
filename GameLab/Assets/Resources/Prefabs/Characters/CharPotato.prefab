@@ -715,6 +715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5499394361886855011}
   - component: {fileID: 7985911711587839646}
+  - component: {fileID: 1059153750294307897}
   m_Layer: 0
   m_Name: CharPotato
   m_TagString: Untagged
@@ -757,6 +758,25 @@ MonoBehaviour:
   - {fileID: 8542727953689570684}
   - {fileID: 1863801218431022940}
   - {fileID: 8240365758739984770}
+--- !u!95 &1059153750294307897
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4850274577144732771}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 376bcdbb2d193b84182e3ab8c1181478, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5198546737824720832
 GameObject:
   m_ObjectHideFlags: 0

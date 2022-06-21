@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1666292222049371015}
   - component: {fileID: -2256827810560822121}
+  - component: {fileID: -9012493632607490760}
   m_Layer: 0
   m_Name: CharCheese
   m_TagString: Untagged
@@ -55,6 +56,25 @@ MonoBehaviour:
   - {fileID: 3991491058100093433}
   - {fileID: 4788371992837091790}
   - {fileID: 4670170431887725730}
+--- !u!95 &-9012493632607490760
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50677156027827526}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 376bcdbb2d193b84182e3ab8c1181478, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &945975743409685355
 GameObject:
   m_ObjectHideFlags: 0

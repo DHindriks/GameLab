@@ -34,6 +34,9 @@ public class UnityPlayerControls : MonoBehaviour
     float invincibilityTimer;
     public bool hasPowerup = false;
 
+    [SerializeField] GameObject DefaultChar;
+    public Animator animator;
+
     //Sprite
     List<SpriteRenderer> sprRender;
 
@@ -55,6 +58,12 @@ public class UnityPlayerControls : MonoBehaviour
 
         mapControls();
         assignSprites();
+    }
+
+    private void Start()
+    {
+        SetCharacter(DefaultChar);
+        
     }
 
     private void Update()
@@ -97,7 +106,10 @@ public class UnityPlayerControls : MonoBehaviour
         NewSkin.transform.localPosition = Vector3.zero;
         sprRender = new List<SpriteRenderer>();
         sprRender = NewSkin.GetComponent<AddSpriteToTeam>().sprites;
-
+        if (NewSkin.GetComponent<Animator>())
+        {
+            animator = NewSkin.GetComponent<Animator>();
+        }
     }
 
     void GatherInput()
@@ -137,6 +149,12 @@ public class UnityPlayerControls : MonoBehaviour
 
         if (move.x != 0)
         {
+            //ANIM
+            if (animator != null)
+            {
+                animator.SetBool("Walking", true);
+            }
+
             if (doAccelerate)
             {
                 _modifier -= accelerationRate * Time.deltaTime;//Changing the acceleration modifier
@@ -180,8 +198,15 @@ public class UnityPlayerControls : MonoBehaviour
         }
         else
         {
+            //ANIM
+            if (animator != null)
+            {
+                animator.SetBool("Walking", false);
+            }
+
             if (doDecelerate)
             {
+
                 if (_horizontalSpeed > 0)
                 {
                     _horizontalSpeed -= decelerationRate * Time.deltaTime;
@@ -258,6 +283,11 @@ public class UnityPlayerControls : MonoBehaviour
             {
                 _verticalSpeed = -maxFallSpeed;
             }
+            //ANIM
+            if (animator)
+            {
+                animator.ResetTrigger("Jumping");
+            }
         }
 
         if (jump == 1 && numberOfJumps > 0 && canJump)
@@ -265,6 +295,12 @@ public class UnityPlayerControls : MonoBehaviour
             _verticalSpeed = jumpSpeed;
             numberOfJumps--;
             canJump = false;
+
+            //ANIM
+            if (animator)
+            {
+                animator.SetTrigger("Jumping");
+            }
         }
         else
         {

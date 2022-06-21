@@ -825,6 +825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7355866882308757820}
   - component: {fileID: -4992638025841424021}
+  - component: {fileID: -8058461693239907443}
   m_Layer: 0
   m_Name: CharOnion
   m_TagString: Untagged
@@ -867,6 +868,25 @@ MonoBehaviour:
   - {fileID: 256422197732306273}
   - {fileID: 8257218306639506175}
   - {fileID: 5469563891923620241}
+--- !u!95 &-8058461693239907443
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4403340144555727798}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 376bcdbb2d193b84182e3ab8c1181478, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4417633688730775874
 GameObject:
   m_ObjectHideFlags: 0
