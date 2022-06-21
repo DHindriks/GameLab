@@ -23,6 +23,10 @@ public class ScoreBoard : MonoBehaviour
         {
             Icon.gameObject.SetActive(true);
             Icon.sprite = NewIcon;
+        }else
+        {
+            Icon.sprite = NewIcon;
+            Icon.gameObject.SetActive(false);
         }
     }
 
